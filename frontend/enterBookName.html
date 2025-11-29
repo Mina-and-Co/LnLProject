@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Type the Name of a Book
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <input list="bookData" id="data" name="books" placeholder="Type the book." />
+        <datalist id="bookData">
+            <option value="book1">book1</option>
+            <option value="book2">book2</option>
+        </datalist>
+
+        <input list="authorData" id="data" name="author" placeholder="Type the author." />
+        <datalist id="authorData">
+            <option value="Bob">Bob</option>
+            <option value="Other Bob">More Different Bob</option>
+        </datalist>
+        <!--Placeholder data-->
+        <span class="searchbar-icon"><i class="fas fa-search"></i></span>
+    </div>
+
+    <script src="findABookScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Quick Survey</h2>
+    <h2>Book: placeholder</h2><!--Put the book id in here where I have them-->
+    <h3>* indicates a required feild.</h3>
+    <h4>Thanks for filling out this survey. It helps a lot!</h4>
+
+    <form action="" method="dialog" id="Survey"><!--method?? i need to add somfin here-->
+
+        <h4>Does this book have...</h4>
+
+        <input type="checkbox" class="nice-checkbox" name="femalepro"> ...strong female protagonists?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...a character driven plot?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...LGBTQIA characters?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...neurodivergent characters?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...racially diverse characters?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...a diverse cast of characters?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...dragons?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...animal characters?<br>
+        <input type="checkbox" class="nice-checkbox" name="cdplot"> ...a unique/creative plot?<br><br>
+
+        <h3>*</h3>
+        <h5>Does the series continue to be good?</h5><br>
+
+        <label>
+            <input type="radio" class="nice-radio" name="series" value="yes" id="series" required> yes
+        </label>
+        <label>
+            <input type="radio" class="nice-radio" name="series" value="no" id="series" required> no
+        </label>
+        <label>
+            <input type="radio" class="nice-radio" name="series" value="not sure yet" id="series" required> not sure
+            yet
+        </label>
+        <label>
+            <input type="radio" class="nice-radio" name="series" value="not a series" id="series" required> not a
+            series
+        </label> <br><br>
+
+        <h3>*</h3>
+        <h5>(Bear with me here) Did this book make you cry? (Inwardly or otherwise)</h5><br>
+        <label>
+            <input type="radio" class="nice-radio" name="cry" value="yes" id="cry" required> yes
+        </label>
+
+        <label>
+            <input type="radio" class="nice-radio" name="cry" value="no" id="cry" required> no
+        </label><br><br>
+
+        <div>
+            <h3>*</h3>
+            <h5>What genre would you say this book is? Select one or more.</h5><br>
+
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Adventure<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Classic<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Dystopia<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Fantasy<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Folktale/Myth<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Graphic Novel<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Historical Fiction<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Sci-Fi<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Memoir/Biography<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Nonfiction<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Poetry<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Realistic Fiction<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Romance<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Sports<br>
+            <input type="checkbox" class="nice-checkbox" name="genre" id="genre"> Horror/Scary<br><br>
+        </div>
+
+        <div>
+            <h3>*</h3>
+            <h5>Rate this book from one to five.</h5><br>
+            <span onclick="gfg(1)" class="star">★</span>
+            <span onclick="gfg(2)" class="star">★</span>
+            <span onclick="gfg(3)" class="star">★</span>
+            <span onclick="gfg(4)" class="star">★</span>
+            <span onclick="gfg(5)" class="star">★</span>
+        </div><br>
+
+        <div>
+            <h3>*</h3>
+            <h5>How violent would you say this book was out of one? Be as authentic as possible.</h5><br>
+            <label>
+                <input type="radio" name="violence" class="violenceRadio" value="1" id="series" required checked>
+            </label>
+            <label>
+                <input type="radio" name="violence" class="violenceRadio" value="2" id="series" required>
+            </label>
+            <label>
+                <input type="radio" name="violence" class="violenceRadio" value="3" id="series" required>
+            </label>
+            <label>
+                <input type="radio" name="violence" class="violenceRadio" value="4" id="series" required>
+            </label>
+            <label>
+                <input type="radio" name="violence" class="violenceRadio" value="5" id="series" required>
+            </label>
+        </div>
+
+
+        <input type="submit" class="button" value="Submit!">
+    </form>
+    <script src="scriptcode.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+h1 {
+    font-weight: bold;
+    color: rgb(59, 3, 22);
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-weight: bold;
+    color: rgb(59, 3, 22);
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+h3 {
+    color: #ff0000;
+    font-size: small;
+    display: inline !important;
+}
+
+h4 {
+    font-size: medium;
+}
+
+h5 {
+    display: inline !important;
+    font-size: medium;
+}
+
+h6 {
+    font-weight: bold;
+    color: rgb(59, 6, 24);
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.error {
+    background-color: rgb(221, 128, 159);
+}
+
+.button {
+    background-color: #3a993f;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 30px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #552a12;
+}
+
+.small-button {
+    background-color: #3a993f;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.small-button:hover {
+    background-color: #552a12;
+}
+
+.searchbar {
+    position: absolute;
+    overflow: hidden;
+    background-color: #000000;
+    backdrop-filter: blur(2px);
+}
+
+.searchbar-icon {
+    position: absolute;
+    right: 27px;
+    top: 25px;
+    background-color: transparent;
+    color: #552a12;
+    cursor: pointer;
+}
+
+input[id=data] {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 9px;
+    border: none;
+    border-radius: 8px;
+    margin: 16px 14px;
+    font-size: 18px;
+    background-color: #3a993f;
+    text-align: left;
+    text-indent: 8px;
+    outline: none;
+    color: #000000;
+}
+
+input[id=data]::placeholder {
+    color: #552a12;
+}
+
+.searchbar,
+input[id=books] {
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.nice-checkbox {
+    accent-color: #3a993f;
+    cursor: pointer;
+}
+
+.nice-radio {
+    accent-color: #3a993f;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 10vh;
+    cursor: pointer;
+}
+
+.one {
+    color: #ff0000;
+}
+
+.two {
+    color: rgb(230, 137, 71);
+}
+
+.three {
+    color: rgb(187, 255, 0);
+}
+
+.four {
+    color: yellow;
+}
+
+.five {
+    color: rgb(218, 107, 172);
+}
+
+
+.one {
+    color: #ff0000;
+}
+
+.violenceRadio {
+    accent-color: #440500;
+    cursor: pointer;
+}
+
+body {
+    background-color: blanchedalmond;
+    font-family: Arial, Helvetica, sans-serif;
+}
