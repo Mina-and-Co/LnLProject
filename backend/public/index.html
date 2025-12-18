@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Test Form</title>
+    <link rel="stylesheet" href="~/Projects/LnLProject/frontend/styles.css">
+</head>
+
+<body>
+    <h1>Form</h1>
+    <form action="/submit" method="POST">
+        <!--Form action="submit" tells the servre to go to the url /submit. That's what POST does.
+         The server uses name to identify the data.-->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <!-- name attribute cannot change-->
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Submit Form</button>
+    </form>
+</body>
+
+</html>

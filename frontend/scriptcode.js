@@ -10,7 +10,6 @@ document
                 return false;
 
             } else {
-                window.close();
                 window.alert("Thank you! Your response has been documented!");
             }
         }
@@ -44,6 +43,30 @@ function remove() {
         i++;
     }
 }
+
+function togglePopup() {
+    const overlay =
+        document.getElementById('popupOverlay');
+    overlay.classList.toggle('show');
+}
+
+function removeShow() {
+    const overlay =
+        document.getElementById('popupOverlay');
+    overlay.classList.remove('show');
+}
+
+document.addEventListener('click', function (event) {
+    const overlay = document.getElementById('popupOverlay');
+    const popupBox = document.querySelector('.popup-box');
+
+    // Check if the click target is not the popup box or the button that opens it
+    if (!popupBox.contains(event.target) && !event.target.matches('.button')) {
+        overlay.classList.remove('show'); // Close the popup
+    }
+});
+
+
 
 /*document
     .getElementById("Survey")
