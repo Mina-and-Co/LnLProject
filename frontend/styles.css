@@ -84,7 +84,7 @@ h6 {
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     float: right;
-    padding: 3px;
+    padding: 5px, 3px;
 }
 
 .searchbar {

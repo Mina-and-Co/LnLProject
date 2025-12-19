@@ -2,6 +2,7 @@ document
     .getElementById("Survey")
     .addEventListener("submit",
         function (event) {
+            const overlay = document.getElementById('popupOverlay');
             checked = $("input[name=genre]:checked").length;
 
             if (!checked) {
@@ -11,6 +12,7 @@ document
 
             } else {
                 window.alert("Thank you! Your response has been documented!");
+                overlay.classList.remove('show');
             }
         }
     );
