@@ -3,7 +3,7 @@ document
     .addEventListener("submit",
         function (event) {
             const overlay = document.getElementById('popupOverlay');
-            checked = $("input[name=genre]:checked").length;
+            checked = $("input[name^=genre]:checked").length;
 
             if (!checked) {
                 alert("Please select at least one genre.");

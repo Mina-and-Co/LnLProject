@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Library
+    </title>
+
+    <link rel="icon" href="book.png" type="image/x-icon"><!--placeholder image-->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <h1>Welcome to [insert cool website name here]!</h1>
+</head>
+
+<body>
+
+    <div class='container'>
+        <button class="button" onclick="">Search by...</button>
+        <button class="button" onclick="togglePopup()">Review a
+            Book</button><!--This will actually bring up a place to type in the name of your book. Then that will lead you to the popup.-->
+        <button class="button" onclick="">About</button>
+    </div>
+
+    <div id="popupOverlay" class="overlay-container">
+        <div class="popup-box">
+            <button class="exit-button" onclick="removeShow()"> x </button>
+            <h2>Quick Survey</h2>
+            <h2>Book: placeholder</h2><!--Put the book id in here where I have them-->
+            <h3>* indicates a required field.</h3>
+            <h4>Thanks for filling out this survey. It helps a lot!</h4>
+
+            <form action="/submit" method="post" id="Survey">
+                <!--Form action="submit" tells the server to go to the url /submit. That's what POST does.
+         The server uses name to identify the data.-->
+                <h4>Does this book have...</h4>
+
+                <input type="checkbox" class="nice-checkbox" name="tag" id="femalepro"> ...strong female
+                protagonists?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="cdplot"> ...a character driven plot?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="LGBTQ"> ...LGBTQIA characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="nd"> ...neurodivergent characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="raciallyDiverse"> ...racially diverse
+                characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="diverse"> ...a diverse cast of
+                characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="dragons"> ...dragons?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="animals"> ...animal characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" id="goodPlot"> ...a unique/creative
+                plot?<br><br>
+
+                <h3>*</h3>
+                <h5>Does the series continue to be good?</h5><br>
+
+                <label>
+                    <input type="radio" class="nice-radio" name="goodSeries" value="yes" id="goodSeries" required> yes
+                </label>
+                <label>
+                    <input type="radio" class="nice-radio" name="goodSeries" value="no" id="badSeries" required> no
+                </label>
+                <label>
+                    <input type="radio" class="nice-radio" name="goodSeries" value="not sure yet" id="notSureSeries"
+                        required>
+                    not
+                    sure
+                    yet
+                </label>
+                <label>
+                    <input type="radio" class="nice-radio" name="goodSeries" value="not a series" id="notSeries"
+                        required>
+                    not
+                    a
+                    series
+                </label> <br><br>
+
+                <h3>*</h3>
+                <h5>(Bear with me here) Did this book make you cry? (Inwardly or otherwise)</h5><br>
+                <label>
+                    <input type="radio" class="nice-radio" id="yesCry" value="yes" name="cry" required> yes
+                </label>
+
+                <label>
+                    <input type="radio" class="nice-radio" id="noCry" value="no" name="cry" required> no
+                </label><br><br>
+
+                <div>
+                    <h3>*</h3>
+                    <h5>What genre would you say this book is? Select one or more.</h5><br>
+
+                    <input type="checkbox" class="nice-checkbox" id="genre-Adventure" name="genre">
+                    Adventure<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Classic" name="genre">
+                    Classic<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Dystopia" name="genre">
+                    Dystopia<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Fantasy" name="genre">
+                    Fantasy<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Folktales/Myths" name="genre">
+                    Folktale/Myth<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-GraphicNovel" name="genre">
+                    Graphic Novel<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-History" name="genre">
+                    Historical Fiction<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Sci-Fi" name="genre"> Sci-Fi<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Memoir/Biography" name="genre">
+                    Memoir/Biography<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Nonfiction" name="genre">
+                    Nonfiction<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Poetry" name="genre"> Poetry<br>
+                    <input type="checkbox" class="nice-checkbox" name="genre-RealisticFiction" name="genre">
+                    Realistic Fiction<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Romance" name="genre">
+                    Romance<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Sports" name="genre"> Sports<br>
+                    <input type="checkbox" class="nice-checkbox" id="genre-Horror/Scary" name="genre">
+                    Horror/Scary<br><br>
+                </div>
+
+                <div>
+                    <h3>*</h3>
+                    <h5>Rate this book from one to five.</h5><br>
+                    <span onclick="gfg(1)" name="star" id="1" class="star">★</span>
+                    <span onclick="gfg(2)" name="star" id="2" class="star">★</span>
+                    <span onclick="gfg(3)" name="star" id="3" class="star">★</span>
+                    <span onclick="gfg(4)" name="star" id="4" class="star">★</span>
+                    <span onclick="gfg(5)" name="star" id="5" class="star">★</span>
+                </div><br>
+
+                <div>
+                    <h3>*</h3>
+                    <h5>How violent would you say this book was out of one? Be as authentic as possible.</h5><br>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="1" id="violence1" required
+                            checked>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="2" id="violence2" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="3" id="violence3" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="4" id="violence4" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="5" id="violence" 5 required>
+                    </label>
+                </div>
+
+
+                <button type="submit" class="button">Submit!</button>
+            </form>
+        </div>
+    </div>
+
+    <!--this is just me messing around-->
+    <!--object data="placeholder.txt" width="300" height="200"></object-->
+
+    <script src="scriptcode.js"></script>
+</body>
+
+</html>
