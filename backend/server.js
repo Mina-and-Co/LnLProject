@@ -22,8 +22,8 @@ app.post('/submit', (req, res) => {
         <body>
         <h1>Success!</h1>
         <p>Your review: ${formData}</p>
-        <p>Is it a good series? ${formData.series}</p>
-        <p>We recieved your review: "${formData.star}"</p>
+        <p>Is it a good series? ${formData.goodSeries}</p>
+        <p>We recieved your review: "${formData.rating}"</p>
         <p>The book's genre(s) was/were: ${formData.genre}.</p>
         <p>The violence rating was ${formData.violence}.</p>
         </body>`);

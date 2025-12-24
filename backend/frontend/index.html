@@ -35,18 +35,27 @@
          The server uses name to identify the data.-->
                 <h4>Does this book have...</h4>
 
-                <input type="checkbox" class="nice-checkbox" name="tag" id="femalepro"> ...strong female
+                <input type="checkbox" class="nice-checkbox" name="tag" value="strong female protaganist"
+                    id="femalepro"> ...strong female
                 protagonists?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="cdplot"> ...a character driven plot?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="LGBTQ"> ...LGBTQIA characters?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="nd"> ...neurodivergent characters?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="raciallyDiverse"> ...racially diverse
+                <input type="checkbox" class="nice-checkbox" name="tag" value="character driven plot" id="cdplot"> ...a
+                character driven plot?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="LGBTQIA characters" id="LGBTQ">
+                ...LGBTQIA characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="neurodivergent characters" id="nd">
+                ...neurodivergent characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="racially diverse" id="raciallyDiverse">
+                ...racially diverse
                 characters?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="diverse"> ...a diverse cast of
+                <input type="checkbox" class="nice-checkbox" name="tag" value="diverse cast of characters" id="diverse">
+                ...a diverse cast of
                 characters?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="dragons"> ...dragons?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="animals"> ...animal characters?<br>
-                <input type="checkbox" class="nice-checkbox" name="tag" id="goodPlot"> ...a unique/creative
+                <input type="checkbox" class="nice-checkbox" name="tag" value="dragon characters" id="dragons">
+                ...dragons?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="animal characters" id="animals">
+                ...animal characters?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="unique and/or creative plot"
+                    id="goodPlot"> ...a unique/creative
                 plot?<br><br>
 
                 <h3>*</h3>
@@ -87,43 +96,54 @@
                     <h3>*</h3>
                     <h5>What genre would you say this book is? Select one or more.</h5><br>
 
-                    <input type="checkbox" class="nice-checkbox" id="genre-Adventure" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Adventure" id="genre-Adventure" name="genre">
                     Adventure<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Classic" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Classic" id="genre-Classic" name="genre">
                     Classic<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Dystopia" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Dystopia" id="genre-Dystopia" name="genre">
                     Dystopia<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Fantasy" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Fantasy" id="genre-Fantasy" name="genre">
                     Fantasy<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Folktales/Myths" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Folktales/Myths" id="genre-Folktales/Myths"
+                        name="genre">
                     Folktale/Myth<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-GraphicNovel" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Graphic Novel" id="genre-GraphicNovel"
+                        name="genre">
                     Graphic Novel<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-History" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Historical Fiction" id="genre-HistoricalFiction"
+                        name="genre">
                     Historical Fiction<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Sci-Fi" name="genre"> Sci-Fi<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Memoir/Biography" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Sci-Fi" id="genre-Sci-Fi" name="genre">
+                    Sci-Fi<br>
+                    <input type="checkbox" class="nice-checkbox" value="Memoir/Biography" id="genre-Memoir/Biography"
+                        name="genre">
                     Memoir/Biography<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Nonfiction" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Nonfiction" id="genre-Nonfiction" name="genre">
                     Nonfiction<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Poetry" name="genre"> Poetry<br>
-                    <input type="checkbox" class="nice-checkbox" name="genre-RealisticFiction" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Poetry" id="genre-Poetry" name="genre">
+                    Poetry<br>
+                    <input type="checkbox" class="nice-checkbox" value="Realistic Fiction" name="genre-RealisticFiction"
+                        name="genre">
                     Realistic Fiction<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Romance" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Romance" id="genre-Romance" name="genre">
                     Romance<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Sports" name="genre"> Sports<br>
-                    <input type="checkbox" class="nice-checkbox" id="genre-Horror/Scary" name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Sports" id="genre-Sports" name="genre">
+                    Sports<br>
+                    <input type="checkbox" class="nice-checkbox" value="Horror/Scary" id="genre-Horror/Scary"
+                        name="genre">
                     Horror/Scary<br><br>
                 </div>
 
                 <div>
                     <h3>*</h3>
                     <h5>Rate this book from one to five.</h5><br>
-                    <span onclick="gfg(1)" name="star" id="1" class="star">★</span>
-                    <span onclick="gfg(2)" name="star" id="2" class="star">★</span>
-                    <span onclick="gfg(3)" name="star" id="3" class="star">★</span>
-                    <span onclick="gfg(4)" name="star" id="4" class="star">★</span>
-                    <span onclick="gfg(5)" name="star" id="5" class="star">★</span>
+                    <span onclick="gfg(1)" name="star" id="1" value="1" class="star">★</span>
+                    <span onclick="gfg(2)" name="star" id="2" value="2" class="star">★</span>
+                    <span onclick="gfg(3)" name="star" id="3" value="3" class="star">★</span>
+                    <span onclick="gfg(4)" name="star" id="4" value="4" class="star">★</span>
+                    <span onclick="gfg(5)" name="star" id="5" value="5" class="star">★</span>
+
+                    <!--add a variable or something here to track the rating.-->
                 </div><br>
 
                 <div>
