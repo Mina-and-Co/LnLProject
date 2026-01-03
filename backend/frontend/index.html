@@ -6,7 +6,7 @@
         Library
     </title>
 
-    <link rel="icon" href="book.png" type="image/x-icon"><!--placeholder image-->
+    <link rel="icon" href="assets/book.png" type="image/x-icon"><!--placeholder image-->
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -56,7 +56,9 @@
                 ...animal characters?<br>
                 <input type="checkbox" class="nice-checkbox" name="tag" value="unique and/or creative plot"
                     id="goodPlot"> ...a unique/creative
-                plot?<br><br>
+                plot?<br>
+                <input type="checkbox" class="nice-checkbox" name="tag" value="healthy male role" id="malePro"> ...a
+                healthy male role?<br><br>
 
                 <h3>*</h3>
                 <h5>Does the series continue to be good?</h5><br>
@@ -68,15 +70,14 @@
                     <input type="radio" class="nice-radio" name="goodSeries" value="no" id="badSeries" required> no
                 </label>
                 <label>
-                    <input type="radio" class="nice-radio" name="goodSeries" value="not sure yet" id="notSureSeries"
+                    <input type="radio" class="nice-radio" name="goodSeries" value="notSureYet" id="notSureSeries"
                         required>
                     not
                     sure
                     yet
                 </label>
                 <label>
-                    <input type="radio" class="nice-radio" name="goodSeries" value="not a series" id="notSeries"
-                        required>
+                    <input type="radio" class="nice-radio" name="goodSeries" value="notASeries" id="notSeries" required>
                     not
                     a
                     series
@@ -137,13 +138,26 @@
                 <div>
                     <h3>*</h3>
                     <h5>Rate this book from one to five.</h5><br>
-                    <span onclick="gfg(1)" name="star" id="1" value="1" class="star">★</span>
-                    <span onclick="gfg(2)" name="star" id="2" value="2" class="star">★</span>
-                    <span onclick="gfg(3)" name="star" id="3" value="3" class="star">★</span>
-                    <span onclick="gfg(4)" name="star" id="4" value="4" class="star">★</span>
-                    <span onclick="gfg(5)" name="star" id="5" value="5" class="star">★</span>
-
-                    <!--add a variable or something here to track the rating.-->
+                    <span onclick="gfg(1)" name="star" id="star1" value="1" class="star">★</span>
+                    <span onclick="gfg(2)" name="star" id="star2" value="2" class="star">★</span>
+                    <span onclick="gfg(3)" name="star" id="star3" value="3" class="star">★</span>
+                    <span onclick="gfg(4)" name="star" id="star4" value="4" class="star">★</span>
+                    <span onclick="gfg(5)" name="star" id="star5" value="5" class="star">★</span>
+                    <br>
+                    <h5>Rating is:</h5>
+                    <h5 id="output">1</h5>
+                    <h5>/5</h5>
+                    <label>
+                        <label><input type="radio" style="display: none;" value="1" id="1" required
+                                name="finalRating"></label>
+                        <label><input type="radio" style="display: none;" value="2" id="2" required
+                                name="finalRating"></label>
+                        <label><input type="radio" style="display: none;" value="3" id="3" required
+                                name="finalRating"></label>
+                        <label><input type="radio" style="display: none;" value="4" id="4" required
+                                name="finalRating"></label>
+                        <label><input type="radio" style="display: none;" value="5" id="5" required
+                                name="finalRating"></label>
                 </div><br>
 
                 <div>

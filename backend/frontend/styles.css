@@ -37,6 +37,11 @@ h6 {
     text-align: left;
 }
 
+.centered-text {
+    display: flex;
+    justify-content: center;
+}
+
 .error {
     background-color: rgb(221, 128, 159);
 }
@@ -290,4 +295,14 @@ body {
 .overlay-container.show {
     display: flex;
     opacity: 1;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    width: 25%;
+    border-radius: 8px;
+
 }

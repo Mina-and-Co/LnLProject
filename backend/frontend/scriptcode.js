@@ -36,6 +36,9 @@ function gfg(n) {
         else if (n == 5) cls = "five";
         stars[i].className = "star " + cls;
     }
+    output.innerText = n;
+    rating = document.getElementById(n);
+    rating.checked = true;
 }
 
 function remove() {

@@ -3,7 +3,7 @@ const app = express();
 const port = 8000;
 
 app.use(express.static('frontend'));
-//serving files from the public folder
+//serving files from the frontend folder
 
 app.use(express.urlencoded({ extended: true }));
 //urlencoded parses the POST request
@@ -23,11 +23,17 @@ app.post('/submit', (req, res) => {
         <h1>Success!</h1>
         <p>Your review: ${formData}</p>
         <p>Is it a good series? ${formData.goodSeries}</p>
-        <p>We recieved your review: "${formData.rating}"</p>
+        <p>We recieved your review: "${formData.finalRating}"</p>
         <p>The book's genre(s) was/were: ${formData.genre}.</p>
         <p>The violence rating was ${formData.violence}.</p>
         </body>`);
 });//res.send sends an HTML response to the browser to confirm.
+
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function (req, res) {
+    res.send("404notfound.html");
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
