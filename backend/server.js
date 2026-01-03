@@ -13,7 +13,6 @@ app.post('/submit', (req, res) => {
     const formData = req.body;
     //req.body contains the form data.
     console.log('Form Data Recieved:', formData);
-    console.log('Form Data Recieved:', req.body);
     //send a response back to the server console
     res.send(`
         <!DOCTYPE html>
