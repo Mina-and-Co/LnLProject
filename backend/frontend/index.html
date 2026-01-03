@@ -6,27 +6,47 @@
         Library
     </title>
 
-    <link rel="icon" href="assets/book.png" type="image/x-icon"><!--placeholder image-->
+    <link rel="icon" href="assets/book.png" type="image/x-icon"><!--placeholder image (maybe)-->
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <h1>Welcome to [insert cool website name here]!</h1>
+    <h1>Welcome to The Marylhurst School Book Finding Website!</h1>
 </head>
 
 <body>
 
     <div class='container'>
-        <button class="button" onclick="">Search by...</button>
-        <button class="button" onclick="togglePopup()">Review a
-            Book</button><!--This will actually bring up a place to type in the name of your book. Then that will lead you to the popup.-->
-        <button class="button" onclick="">About</button>
+        <button class="button" onclick="location.href='search.html'">Search by...</button>
+        <button class="button" onclick="togglePopup0()">Review a
+            Book</button><br>
+        <a href="about.html" class="button">About</a>
+    </div>
+
+    <div id="popupOverlay0" class="overlay-container">
+        <div class="popup-box0">
+            <button class="exit-button" onclick="removeShow0()"> x </button>
+            <input list="bookData" id="data" name="books" placeholder="Type the book." />
+            <datalist id="bookData">
+                <option value="book1">book1</option>
+                <option value="book2">book2</option>
+            </datalist>
+
+            <input list="authorData" id="dataAuthor" name="author" placeholder="Type the author." />
+            <datalist id="authorData">
+                <option value="Bob">Bob</option>
+                <option value="Other Bob">More Different Bob</option>
+            </datalist>
+            <!--Placeholder data-->
+            <span class="searchbar-icon"><i class="fas fa-search"></i></span>
+            <button class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed">Proceed</button>
+        </div>
     </div>
 
     <div id="popupOverlay" class="overlay-container">
         <div class="popup-box">
             <button class="exit-button" onclick="removeShow()"> x </button>
             <h2>Quick Survey</h2>
-            <h2>Book: placeholder</h2><!--Put the book id in here where I have them-->
+            <h2 id="bookName">Book: placeholder</h2><!--Put the book id in here where I have them-->
             <h3>* indicates a required field.</h3>
             <h4>Thanks for filling out this survey. It helps a lot!</h4>
 
@@ -138,11 +158,11 @@
                 <div>
                     <h3>*</h3>
                     <h5>Rate this book from one to five.</h5><br>
-                    <span onclick="gfg(1)" name="star" id="star1" value="1" class="star">★</span>
-                    <span onclick="gfg(2)" name="star" id="star2" value="2" class="star">★</span>
-                    <span onclick="gfg(3)" name="star" id="star3" value="3" class="star">★</span>
-                    <span onclick="gfg(4)" name="star" id="star4" value="4" class="star">★</span>
-                    <span onclick="gfg(5)" name="star" id="star5" value="5" class="star">★</span>
+                    <span onclick="changeRating(1)" name="star" id="star1" value="1" class="star">★</span>
+                    <span onclick="changeRating(2)" name="star" id="star2" value="2" class="star">★</span>
+                    <span onclick="changeRating(3)" name="star" id="star3" value="3" class="star">★</span>
+                    <span onclick="changeRating(4)" name="star" id="star4" value="4" class="star">★</span>
+                    <span onclick="changeRating(5)" name="star" id="star5" value="5" class="star">★</span>
                     <br>
                     <h5>Rating is:</h5>
                     <h5 id="output">1</h5>
@@ -186,11 +206,17 @@
             </form>
         </div>
     </div>
-
+    <a target="_blank" href="https://www.themarylhurstschool.org/"> <img src="assets/marylhurstSchool.webp" class="img1"
+            title="The Marylhurst School Website"></a>
     <!--this is just me messing around-->
     <!--object data="placeholder.txt" width="300" height="200"></object-->
-
     <script src="scriptcode.js"></script>
+    <div class="image-container">
+        <a target="_blank" href="https://www.librarycat.org/lib/MarylhurstHerons"><img class="img2" src="assets/cat.png"
+                title="The Marylhurst School Library"></a>
+        <p>Check out your book!</p>
+
+    </div>
 </body>
 
 </html>

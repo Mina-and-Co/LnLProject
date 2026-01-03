@@ -37,9 +37,22 @@ h6 {
     text-align: left;
 }
 
+
+body {
+    background-color: blanchedalmond;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .centered-text {
+    margin-top: 15px;
+    margin-left: 15px;
     display: flex;
     justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-text {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .error {
@@ -59,6 +72,7 @@ h6 {
     border-radius: 8px;
     border: none;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .button:hover {
@@ -77,6 +91,8 @@ h6 {
     border-radius: 8px;
     border: none;
     transition: background-color 0.3s ease;
+    display: block;
+    margin-left: 80%;
 }
 
 .small-button:hover {
@@ -123,6 +139,24 @@ input[id=data] {
 }
 
 input[id=data]::placeholder {
+    color: #552a12;
+}
+
+input[id=dataAuthor] {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 9px;
+    border: none;
+    border-radius: 8px;
+    margin: 16px 14px;
+    font-size: 18px;
+    background-color: #3a993f;
+    text-align: left;
+    text-indent: 8px;
+    outline: none;
+    color: #000000;
+}
+
+input[id=dataAuthor]::placeholder {
     color: #552a12;
 }
 
@@ -183,12 +217,6 @@ input[id=books] {
     cursor: pointer;
 }
 
-body {
-    background-color: blanchedalmond;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
 .btn-open-popup {
     padding: 12px 24px;
     font-size: 18px;
@@ -219,6 +247,19 @@ body {
 }
 
 .popup-box {
+    background: blanchedalmond;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 500px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInUp 0.5s ease-out forwards;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.popup-box0 {
     background: blanchedalmond;
     padding: 24px;
     border-radius: 12px;
@@ -305,4 +346,51 @@ body {
     width: 25%;
     border-radius: 8px;
 
+}
+
+.p-image {
+    float: right;
+    margin: 10px;
+    width: 50%;
+    border-radius: 8px;
+    border: 3px solid #f5cab4
+}
+
+.img1 {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img1:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 143, 186, 0.5);
+    /*hehehehehehe*/
+}
+
+.image-container {
+    text-align: center;
+    width: 100px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img2 {
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 50px;
+}
+
+.img2:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 143, 186, 0.5);
+    /*hehehehehehe*/
 }

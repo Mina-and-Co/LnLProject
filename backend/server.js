@@ -13,18 +13,18 @@ app.post('/submit', (req, res) => {
     const formData = req.body;
     //req.body contains the form data.
     console.log('Form Data Recieved:', formData);
+    console.log('Form Data Recieved:', req.body);
     //send a response back to the server console
     res.send(`
         <!DOCTYPE html>
         <head>
         <title>Sucess!</title>
-        <link rel="stylesheet" frontend/styles.css">
         </head>
         <body>
         <h1>Success!</h1>
-        <p>Your review: ${formData}</p>
+        <p>Book: ${req.body.book} by ${req.body.author}.</p>
         <p>Is it a good series? ${formData.goodSeries}</p>
-        <p>We recieved your review: "${formData.finalRating}"</p>
+        <p>You rated it ${formData.finalRating} stars.</p>
         <p>The book's genre(s) was/were: ${formData.genre}.</p>
         <p>The violence rating was ${formData.violence}.</p>
         </body>`);

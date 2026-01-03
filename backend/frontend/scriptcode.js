@@ -12,6 +12,15 @@ document
 
             } else {
                 window.alert("Thank you! Your response has been documented!");
+                $.post("/submit",
+                    {
+                        book: "bookValue",
+                        author: authorValue
+                    },
+                    function (data, status) {
+                        console.log(data);
+                    }
+                );
                 overlay.classList.remove('show');
             }
         }
@@ -21,12 +30,12 @@ let stars =
     document.getElementsByClassName("star");
 
 function setOne() {
-    gfg(1);
+    changeRating(1);
 }
 
 window.onload = setOne;
 
-function gfg(n) {
+function changeRating(n) {
     remove();
     for (let i = 0; i < n; i++) {
         if (n == 1) cls = "one";
@@ -55,34 +64,47 @@ function togglePopup() {
     overlay.classList.toggle('show');
 }
 
+function togglePopup0() {
+    const overlay =
+        document.getElementById('popupOverlay0');
+    overlay.classList.toggle('show');
+}
+
 function removeShow() {
     const overlay =
         document.getElementById('popupOverlay');
     overlay.classList.remove('show');
 }
 
+function removeShow0() {
+    const overlay =
+        document.getElementById('popupOverlay0');
+    overlay.classList.remove('show');
+}
+
 document.addEventListener('click', function (event) {
     const overlay = document.getElementById('popupOverlay');
     const popupBox = document.querySelector('.popup-box');
+    const overlay0 = document.getElementById('popupOverlay0');
+    const popupBox0 = document.querySelector('.popup-box0');
 
     // Check if the click target is not the popup box or the button that opens it
-    if (!popupBox.contains(event.target) && !event.target.matches('.button')) {
+    if (!popupBox.contains(event.target) && !event.target.matches('.button') && !popupBox0.contains(event.target) && !event.target.matches('.small-button')) {
         overlay.classList.remove('show'); // Close the popup
     }
 });
 
+$(document).ready(function () {
+    $('select').selectize({
+        sortField: 'text'
+    });
+});
 
+let bookValue;
+let authorValue;
+document.getElementById("Proceed").addEventListener('click', function () {
+    const bookValue = document.getElementById('data').value;
+    const authorValue = document.getElementById('dataAuthor').value;
 
-/*document
-    .getElementById("Survey")
-    .addEventListener("submit",
-        function (event) {
-            event.preventDefault();
-
-            let errorText =
-                document.getElementById(
-                    "errorText"
-                );
-
-        }
-    );*/
+    document.getElementById("bookName").textContent = "Book: " + bookValue + " by " + authorValue;
+})
