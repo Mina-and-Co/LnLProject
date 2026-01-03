@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 8000;
 
@@ -30,8 +31,8 @@ app.post('/submit', (req, res) => {
 });//res.send sends an HTML response to the browser to confirm.
 
 //The 404 Route (ALWAYS Keep this as the last route)
-app.get('*', function (req, res) {
-    res.send("404notfound.html");
+app.use(function (req, res) {
+    res.status(404).sendFile(path.join(__dirname, "/frontend/404notfound.html"));
 });
 
 app.listen(port, () => {
