@@ -22,41 +22,43 @@
         <a href="about.html" class="button">About</a>
     </div>
 
-    <div id="popupOverlay0" class="overlay-container">
-        <div class="popup-box0">
-            <button class="exit-button" onclick="removeShow0()"> x </button>
-            <input list="bookData" id="data" name="books" placeholder="Type the book." />
-            <datalist id="bookData">
-                <option value="book1">book1</option>
-                <option value="book2">book2</option>
-            </datalist>
+    <form action="/submit" method="post" id="Survey">
+        <div id="popupOverlay0" class="overlay-container">
+            <div class="popup-box0">
+                <button class="exit-button" onclick="removeShow0()"> x </button>
+                <input list="bookData" id="data" name="book" placeholder="Type the book." />
+                <datalist id="bookData">
+                    <option value="book1">book1</option>
+                    <option value="book2">book2</option>
+                </datalist>
 
-            <input list="authorData" id="dataAuthor" name="author" placeholder="Type the author." />
-            <datalist id="authorData">
-                <option value="Bob">Bob</option>
-                <option value="Other Bob">More Different Bob</option>
-            </datalist>
-            <!--Placeholder data-->
-            <span class="searchbar-icon"><i class="fas fa-search"></i></span>
-            <button class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed">Proceed</button>
+                <input list="authorData" id="dataAuthor" name="author" placeholder="Type the author." />
+                <datalist id="authorData">
+                    <option value="Bob">Bob</option>
+                    <option value="Other Bob">More Different Bob</option>
+                </datalist>
+                <!--Placeholder data-->
+                <span class="searchbar-icon"><i class="fas fa-search"></i></span>
+                <button class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed">Proceed</button>
+            </div>
         </div>
-    </div>
 
-    <div id="popupOverlay" class="overlay-container">
-        <div class="popup-box">
-            <button class="exit-button" onclick="removeShow()"> x </button>
-            <h2>Quick Survey</h2>
-            <h2 id="bookName">Book: placeholder</h2><!--Put the book id in here where I have them-->
-            <h3>* indicates a required field.</h3>
-            <h4>Thanks for filling out this survey. It helps a lot!</h4>
+        <div id="popupOverlay" class="overlay-container">
+            <div class="popup-box">
+                <button class="exit-button" onclick="removeShow()"> x </button>
+                <h2>Quick Survey</h2>
+                <h2 id="bookName">Book: placeholder</h2><!--Put the book id in here where I have them-->
+                <h3>* indicates a required field.</h3>
+                <h4>Thanks for filling out this survey. It helps a lot!</h4>
 
-            <form action="/submit" method="post" id="Survey">
+
                 <!--Form action="submit" tells the server to go to the url /submit. That's what POST does.
          The server uses name to identify the data.-->
                 <h4>Does this book have...</h4>
 
                 <input type="checkbox" class="nice-checkbox" name="tag" value="strong female protaganist"
-                    id="femalepro"> ...strong female
+                    id="femalepro">
+                ...strong female
                 protagonists?<br>
                 <input type="checkbox" class="nice-checkbox" name="tag" value="character driven plot" id="cdplot"> ...a
                 character driven plot?<br>
@@ -75,7 +77,8 @@
                 <input type="checkbox" class="nice-checkbox" name="tag" value="animal characters" id="animals">
                 ...animal characters?<br>
                 <input type="checkbox" class="nice-checkbox" name="tag" value="unique and/or creative plot"
-                    id="goodPlot"> ...a unique/creative
+                    id="goodPlot">
+                ...a unique/creative
                 plot?<br>
                 <input type="checkbox" class="nice-checkbox" name="tag" value="healthy male role" id="malePro"> ...a
                 healthy male role?<br><br>
@@ -200,23 +203,35 @@
                         <input type="radio" name="violence" class="violenceRadio" value="5" id="violence" 5 required>
                     </label>
                 </div>
-
-
                 <button type="submit" class="button">Submit!</button>
-            </form>
-        </div>
+    </form>
     </div>
+    </div>
+
+
     <a target="_blank" href="https://www.themarylhurstschool.org/"> <img src="assets/marylhurstSchool.webp" class="img1"
             title="The Marylhurst School Website"></a>
     <!--this is just me messing around-->
     <!--object data="placeholder.txt" width="300" height="200"></object-->
-    <script src="scriptcode.js"></script>
     <div class="image-container">
         <a target="_blank" href="https://www.librarycat.org/lib/MarylhurstHerons"><img class="img2" src="assets/cat.png"
                 title="The Marylhurst School Library"></a>
         <p>Check out your book!</p>
 
     </div>
+
+    <p class="centered-text"></p>
+
+    <footer>
+        <p>All info that I need to put about the Marylhurst School goes here.</p>
+        <a href="index.html">Home</a>
+        <button class="text-button" onclick="togglePopup0()">Review a Book</button>
+        <a href="about.html">About</a>
+        <a href="search.html">Search for a Book</a>
+
+    </footer>
+
+    <script src="scriptcode.js"></script>
 </body>
 
 </html>

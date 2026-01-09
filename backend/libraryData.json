@@ -1,0 +1,82 @@
+[
+    {
+        "books": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "2",
+        "violence": "2"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Graphic Novel",
+        "finalRating": "2",
+        "violence": "1"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "3",
+        "violence": "2"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "3",
+        "violence": "2"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": [
+            "strong female protaganist",
+            "healthy male role"
+        ],
+        "goodSeries": "no",
+        "cry": "yes",
+        "genre": "Romance",
+        "finalRating": "5",
+        "violence": "5"
+    },
+    {
+        "book": "book2",
+        "author": "Other Bob",
+        "tag": "LGBTQIA characters",
+        "goodSeries": "yes",
+        "cry": "no",
+        "genre": "Sports",
+        "finalRating": "5",
+        "violence": "1"
+    },
+    {
+        "book": "My Side of the Mountain",
+        "author": "Jean Craighead George",
+        "tag": [
+            "character driven plot",
+            "unique and/or creative plot"
+        ],
+        "goodSeries": "notASeries",
+        "cry": "no",
+        "genre": [
+            "Adventure",
+            "Classic"
+        ],
+        "genre-RealisticFiction": "Realistic Fiction",
+        "finalRating": "5",
+        "violence": "1"
+    }
+]

@@ -4,6 +4,7 @@ const { json } = require('stream/consumers');
 const app = express();
 const port = 8000;
 const fs = require("fs");
+const reviewData = require("./libraryData.json")
 
 app.use(express.static('frontend'));
 //serving files from the frontend folder
@@ -15,23 +16,17 @@ app.post('/submit', (req, res) => {
     //req.body contains the form data.
     console.log('Form Data Recieved:', formData);
 
-    const jsonContent = JSON.stringify(formData);
-    res.end(jsonContent);
-    //send a response back to the server console
-    //res.send(`
-    //  <!DOCTYPE html>
-    //<head>
-    //<title>Sucess!</title>
-    //</head>
-    //<body>
-    //<h1>Success!</h1>
-    //<p>Book: ${req.body.book} by ${req.body.author}.</p>
-    //<p>Is it a good series? ${formData.goodSeries}</p>
-    //<p>You rated it ${formData.finalRating} stars.</p>
-    //<p>The book's genre(s) was/were: ${formData.genre}.</p>
-    //<p>The violence rating was ${formData.violence}.</p>
-    //</body>`);
-});//res.send sends an HTML response to the browser to confirm.
+    fs.writeFile(
+        "libraryData.json",
+        JSON.stringify(formData), { flag: "a" },
+        err => {
+            if (err) throw err;
+
+            console.log("Done");
+        }
+    )
+
+});
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.use(function (req, res) {
