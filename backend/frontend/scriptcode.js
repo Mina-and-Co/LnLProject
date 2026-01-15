@@ -12,19 +12,15 @@ document
 
             } else {
                 window.alert("Thank you! Your response has been documented!");
-                $.post("/submit",
-                    {
-                        book: "bookValue",
-                        author: authorValue
-                    },
-                    function (data, status) {
-                        console.log(data);
-                    }
-                );
                 overlay.classList.remove('show');
             }
         }
     );
+
+function resetForm() {
+    document.getElementById("Survey").reset();
+    document.querySelectorAll('input[type=checkbox]').forEach(checked = true);
+}
 
 let stars =
     document.getElementsByClassName("star");
@@ -100,11 +96,11 @@ $(document).ready(function () {
     });
 });
 
-let bookValue;
+let titleValue;
 let authorValue;
 document.getElementById("Proceed").addEventListener('click', function () {
-    const bookValue = document.getElementById('data').value;
+    const titleValue = document.getElementById('data').value;
     const authorValue = document.getElementById('dataAuthor').value;
 
-    document.getElementById("bookName").textContent = "Book: " + bookValue + " by " + authorValue;
+    document.getElementById("titleName").textContent = "title: " + titleValue + " by " + authorValue;
 })

@@ -78,5 +78,48 @@
         "genre-RealisticFiction": "Realistic Fiction",
         "finalRating": "5",
         "violence": "1"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "healthy male role",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "4",
+        "violence": "2"
+    },
+    {
+        "book": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "book": "book",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "rating": {
+            "count": "0",
+            "average": "3"
+        },
+        "violence": "1"
     }
 ]

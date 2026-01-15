@@ -17,7 +17,7 @@
 
     <div class='container'>
         <button class="button" onclick="location.href='search.html'">Search by...</button>
-        <button class="button" onclick="togglePopup0()">Review a
+        <button class="button" onclick="togglePopup0();resetForm();setOne()">Review a
             Book</button><br>
         <a href="about.html" class="button">About</a>
     </div>
@@ -26,8 +26,8 @@
         <div id="popupOverlay0" class="overlay-container">
             <div class="popup-box0">
                 <button class="exit-button" onclick="removeShow0()"> x </button>
-                <input list="bookData" id="data" name="book" placeholder="Type the book." />
-                <datalist id="bookData">
+                <input list="titleData" id="data" name="title" placeholder="Type the title." />
+                <datalist id="titleData">
                     <option value="book1">book1</option>
                     <option value="book2">book2</option>
                 </datalist>
@@ -170,17 +170,12 @@
                     <h5>Rating is:</h5>
                     <h5 id="output">1</h5>
                     <h5>/5</h5>
-                    <label>
-                        <label><input type="radio" style="display: none;" value="1" id="1" required
-                                name="finalRating"></label>
-                        <label><input type="radio" style="display: none;" value="2" id="2" required
-                                name="finalRating"></label>
-                        <label><input type="radio" style="display: none;" value="3" id="3" required
-                                name="finalRating"></label>
-                        <label><input type="radio" style="display: none;" value="4" id="4" required
-                                name="finalRating"></label>
-                        <label><input type="radio" style="display: none;" value="5" id="5" required
-                                name="finalRating"></label>
+
+                    <input type="radio" style="display: none;" value="1" id="1" required name="finalRating">
+                    <input type="radio" style="display: none;" value="2" id="2" required name="finalRating">
+                    <input type="radio" style="display: none;" value="3" id="3" required name="finalRating">
+                    <input type="radio" style="display: none;" value="4" id="4" required name="finalRating">
+                    <input type="radio" style="display: none;" value="5" id="5" required name="finalRating">
                 </div><br>
 
                 <div>
