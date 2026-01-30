@@ -1,25 +1,27 @@
-document
-    .getElementById("Survey")
-    .addEventListener("submit",
-        function (event) {
-            const overlay = document.getElementById('popupOverlay');
-            checked = $("input[name^=genre]:checked").length;
 
-            if (!checked) {
-                alert("Please select at least one genre.");
-                event.preventDefault();
-                return false;
 
-            } else {
-                window.alert("Thank you! Your response has been documented!");
-                overlay.classList.remove('show');
-            }
+document.getElementById("submitButton").addEventListener("click",
+    function (event) {
+        event.preventDefault();
+        const overlay = document.getElementById('popupOverlay');
+        checked = $("input[name^=genre]:checked").length;
+
+        if (!checked) {
+            alert("Please select at least one genre.");
+            event.preventDefault();
+            return false;
+        } else {
+            window.alert("Thank you! Your response has been documented!");
+            overlay.classList.remove('show');
         }
-    );
+    }
+);
 
 function resetForm() {
     document.getElementById("Survey").reset();
-    document.querySelectorAll('input[type=checkbox]').forEach(checked = true);
+    document.querySelectorAll('input[type=text]').forEach(checked = false);
+    document.querySelectorAll('input[type=text]').forEach
+    setOne();
 }
 
 let stars =
@@ -29,19 +31,19 @@ function setOne() {
     changeRating(1);
 }
 
-window.onload = setOne;
+window.onload = setOne();
 
-function changeRating(n) {
+function changeRating(newRating) {
     remove();
-    for (let i = 0; i < n; i++) {
-        if (n == 1) cls = "one";
-        else if (n == 2) cls = "two";
-        else if (n == 3) cls = "three";
-        else if (n == 4) cls = "four";
-        else if (n == 5) cls = "five";
+    for (let i = 0; i < newRating; i++) {
+        if (newRating == 1) cls = "one";
+        else if (newRating == 2) cls = "two";
+        else if (newRating == 3) cls = "three";
+        else if (newRating == 4) cls = "four";
+        else if (newRating == 5) cls = "five";
         stars[i].className = "star " + cls;
     }
-    output.innerText = n;
+    output.innerText = newRating;
     rating = document.getElementById(n);
     rating.checked = true;
 }
@@ -98,9 +100,19 @@ $(document).ready(function () {
 
 let titleValue;
 let authorValue;
-document.getElementById("Proceed").addEventListener('click', function () {
-    const titleValue = document.getElementById('data').value;
+
+function toggleProceedButton() {
+    const proceedButton = document.getElementById('Proceed');
+    const titleValue = document.getElementById('dataBook').value;
     const authorValue = document.getElementById('dataAuthor').value;
 
-    document.getElementById("titleName").textContent = "title: " + titleValue + " by " + authorValue;
-})
+    if (titleValue === "" || authorValue === "") {
+        proceedButton.disabled = true;
+        console.log("disabled");
+    } else {
+        proceedButton.disabled = false;
+        console.log("continue");
+    };
+
+    document.getElementById("bookName").textContent = "Book to Review: " + titleValue + " by " + authorValue;
+};

@@ -121,5 +121,35 @@
             "average": "3"
         },
         "violence": "1"
+    },
+    {
+        "title": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "3",
+        "violence": "2"
+    },
+    {
+        "title": "book1",
+        "author": "Other Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "5",
+        "violence": "5"
+    },
+    {
+        "title": "book1",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Horror/Scary",
+        "finalRating": "3",
+        "violence": "1"
     }
 ]

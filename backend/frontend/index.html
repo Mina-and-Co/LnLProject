@@ -17,29 +17,31 @@
 
     <div class='container'>
         <button class="button" onclick="location.href='search.html'">Search by...</button>
-        <button class="button" onclick="togglePopup0();resetForm();setOne()">Review a
+        <button class="button" onclick="togglePopup0(); resetForm(); setOne()">Review a
             Book</button><br>
-        <a href="about.html" class="button">About</a>
+        <button onclick="location.href='about.html'" class="button">About</button>
     </div>
 
-    <form action="/submit" method="post" id="Survey">
+    <form action="/submit" method="POST" id="Survey">
         <div id="popupOverlay0" class="overlay-container">
             <div class="popup-box0">
                 <button class="exit-button" onclick="removeShow0()"> x </button>
-                <input list="titleData" id="data" name="title" placeholder="Type the title." />
+                <input list="titleData" type="text" id="dataBook" name="title" placeholder="Type the title."
+                    oninput="toggleProceedButton()" />
                 <datalist id="titleData">
                     <option value="book1">book1</option>
                     <option value="book2">book2</option>
                 </datalist>
 
-                <input list="authorData" id="dataAuthor" name="author" placeholder="Type the author." />
+                <input type="text" list="authorData" id="dataAuthor" name="author" placeholder="Type the author."
+                    oninput="toggleProceedButton()" />
                 <datalist id="authorData">
                     <option value="Bob">Bob</option>
                     <option value="Other Bob">More Different Bob</option>
                 </datalist>
                 <!--Placeholder data-->
-                <span class="searchbar-icon"><i class="fas fa-search"></i></span>
-                <button class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed">Proceed</button>
+                <button type="button" class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed"
+                    disabled>Proceed</button>
             </div>
         </div>
 
@@ -47,7 +49,7 @@
             <div class="popup-box">
                 <button class="exit-button" onclick="removeShow()"> x </button>
                 <h2>Quick Survey</h2>
-                <h2 id="bookName">Book: placeholder</h2><!--Put the book id in here where I have them-->
+                <h2 id="bookName"></h2><!--Put the book id in here where I have them-->
                 <h3>* indicates a required field.</h3>
                 <h4>Thanks for filling out this survey. It helps a lot!</h4>
 
@@ -146,8 +148,8 @@
                     Nonfiction<br>
                     <input type="checkbox" class="nice-checkbox" value="Poetry" id="genre-Poetry" name="genre">
                     Poetry<br>
-                    <input type="checkbox" class="nice-checkbox" value="Realistic Fiction" name="genre-RealisticFiction"
-                        name="genre">
+                    <input type="checkbox" class="nice-checkbox" value="Realistic Fiction" name="genre"
+                        id="genre-RealisticFiction">
                     Realistic Fiction<br>
                     <input type="checkbox" class="nice-checkbox" value="Romance" id="genre-Romance" name="genre">
                     Romance<br>
@@ -171,7 +173,8 @@
                     <h5 id="output">1</h5>
                     <h5>/5</h5>
 
-                    <input type="radio" style="display: none;" value="1" id="1" required name="finalRating">
+                    <input type="radio" style="display: none;" value="1" id="1" required name="finalRating"
+                        checked="checked">
                     <input type="radio" style="display: none;" value="2" id="2" required name="finalRating">
                     <input type="radio" style="display: none;" value="3" id="3" required name="finalRating">
                     <input type="radio" style="display: none;" value="4" id="4" required name="finalRating">
@@ -198,7 +201,7 @@
                         <input type="radio" name="violence" class="violenceRadio" value="5" id="violence" 5 required>
                     </label>
                 </div>
-                <button type="submit" class="button">Submit!</button>
+                <button type="submit" class="button" id="submitButton">Submit!</button>
     </form>
     </div>
     </div>
