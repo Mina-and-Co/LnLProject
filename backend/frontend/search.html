@@ -8,12 +8,41 @@
 
     <link rel="icon" href="/assets/book.png" type="image/x-icon"><!--placeholder image (maybe)-->
     <link rel="stylesheet" href="/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <h1>Search By...</h1>
 </head>
 
 <body>
+    <h2>Genre</h2>
+    <button type="button" class="button" name="genreSearch" id="AdventureSearch"
+        onclick="search('Adventure')">Adventure</button>
+    <button type="button" class="button" name="genreSearch" id="ClassicSearch"
+        onclick="search('Classic')">Classic</button>
+    <button type="button" class="button" name="genreSearch" id="DystopiaSearch"
+        onclick="search('Dystopia')">Dystopia</button>
+    <button type="button" class="button" name="genreSearch" id="FantasySearch"
+        onclick="search('Fantasy')">Fantasy</button>
+    <button type="button" class="button" name="genreSearch" id="FolktaleSearch"
+        onclick="search('Folktale')">Folktale/Myth</button>
+    <button type="button" class="button" name="genreSearch" id="GraphicNovelSearch"
+        onclick="search('GraphicNovel')">Graphic Novel</button>
+    <button type="button" class="button" name="genreSearch" id="Historical"
+        onclick="search('HistoricalFiction')">Historical Fiction</button>
+    <button type="button" class="button" name="genreSearch" id="Sci-FiSearch" onclick="search('Sci-Fi')">Sci-Fi</button>
+    <button type="button" class="button" name="genreSearch" id="BiographySearch"
+        onclick="search('MemoirBiography')">Memoir/Biography</button>
+    <button type="button" class="button" name="genreSearch" id="NonfictionSearch"
+        onclick="search('Nonfiction')">Nonfiction</button>
+    <button type="button" class="button" name="genreSearch" id="PoetrySearch" onclick="search('Poetry')">Poetry</button>
+    <button type="button" class="button" name="genreSearch" id="RealisticFictionSearch"
+        onclick="search('RealisticFiction')">Realistic Fiction</button>
+    <button type="button" class="button" name="genreSearch" id="RomanceSearch"
+        onclick="search('Romance')">Romance</button>
+    <button type="button" class="button" name="genreSearch" id="SportsSearch" onclick="search('Sports')">Sports</button>
+    <button type="button" class="button" name="genreSearch" id="HorrorScarySearch"
+        onclick="search('HorrorScary')">Horror/Scary</button>
 
+
+    <script src="findABookScript.js"></script>
 </body>
 
 </html>

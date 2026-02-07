@@ -2,7 +2,6 @@
 
 document.getElementById("submitButton").addEventListener("click",
     function (event) {
-        event.preventDefault();
         const overlay = document.getElementById('popupOverlay');
         checked = $("input[name^=genre]:checked").length;
 
@@ -18,23 +17,25 @@ document.getElementById("submitButton").addEventListener("click",
 );
 
 function resetForm() {
+    console.log("This thing is getting called.")
     document.getElementById("Survey").reset();
-    document.querySelectorAll('input[type=text]').forEach(checked = false);
-    document.querySelectorAll('input[type=text]').forEach
-    setOne();
+    toggleProceedButton();
+    resetStarRating();
+    document.getElementById('Proceed').disabled = true;
+    console.log(document.getElementById("Proceed"));
 }
 
 let stars =
     document.getElementsByClassName("star");
 
-function setOne() {
+function resetStarRating() {
     changeRating(1);
 }
 
-window.onload = setOne();
+window.onload = resetStarRating();
 
 function changeRating(newRating) {
-    remove();
+    removeStarRating();
     for (let i = 0; i < newRating; i++) {
         if (newRating == 1) cls = "one";
         else if (newRating == 2) cls = "two";
@@ -44,11 +45,11 @@ function changeRating(newRating) {
         stars[i].className = "star " + cls;
     }
     output.innerText = newRating;
-    rating = document.getElementById(n);
+    rating = document.getElementById(newRating);
     rating.checked = true;
 }
 
-function remove() {
+function removeStarRating() {
     let i = 0;
     while (i < 5) {
         stars[i].className = "star";
@@ -56,25 +57,25 @@ function remove() {
     }
 }
 
-function togglePopup() {
+function toggleFormOverlay() {
     const overlay =
         document.getElementById('popupOverlay');
     overlay.classList.toggle('show');
 }
 
-function togglePopup0() {
+function toggleAuthorInputOverlay() {
     const overlay =
         document.getElementById('popupOverlay0');
     overlay.classList.toggle('show');
 }
 
-function removeShow() {
+function hideFormOverlay() {
     const overlay =
         document.getElementById('popupOverlay');
     overlay.classList.remove('show');
 }
 
-function removeShow0() {
+function hideAuthorDataOverlay() {
     const overlay =
         document.getElementById('popupOverlay0');
     overlay.classList.remove('show');

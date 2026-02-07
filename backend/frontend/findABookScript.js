@@ -1,15 +1,13 @@
-/*function searchOrAddBookTitles() {
-    let input =
-        document.getElementById('search').value
-    input = input.toLowerCase();
-    let data = "placeholder";
-    let result = data.includes(input);
+/*fetch('/searchfor')
+    .then(response => response.text())
+    .then(jsonDataArray => {
+        jsonDataArray.array.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            content.appendChild(li);
+        });
+    })*/
 
-
-}*/
-
-$(document).ready(function () {
-    $('select').selectize({
-        sortField: 'text'
-    });
-});
+function search(genre) {
+    console.log(genre);
+}

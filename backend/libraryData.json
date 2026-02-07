@@ -151,5 +151,104 @@
         "genre": "Horror/Scary",
         "finalRating": "3",
         "violence": "1"
+    },
+    null,
+    {
+        "title": "book2",
+        "author": "Bob",
+        "tag": "strong female protaganist",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": "Adventure",
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "title": "book1",
+        "author": "Bob",
+        "tag": [
+            "strong female protaganist"
+        ],
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": [
+            "Sci-Fi"
+        ],
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "title": "book1",
+        "author": "Bob",
+        "tag": [
+            "strong female protaganist"
+        ],
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": [
+            "Sci-Fi"
+        ],
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "title": "book2",
+        "author": "Other Bob",
+        "tag": [
+            "strong female protaganist",
+            "character driven plot"
+        ],
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": [
+            "Classic",
+            "Dystopia"
+        ],
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "title": "book1",
+        "author": "Bob",
+        "tag": [
+            "strong female protaganist",
+            "healthy male role"
+        ],
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": [
+            "Fantasy",
+            "Folktales/Myths"
+        ],
+        "finalRating": "1",
+        "violence": "1"
+    },
+    {
+        "title": "book2",
+        "author": "Other Bob",
+        "tag": [
+            "LGBTQIA characters",
+            "dragon characters"
+        ],
+        "goodSeries": "notSureYet",
+        "cry": "yes",
+        "genre": [
+            "Fantasy",
+            "Romance"
+        ],
+        "finalRating": "1",
+        "violence": "5"
+    },
+    {
+        "title": "book2",
+        "author": "Other Bob",
+        "goodSeries": "yes",
+        "cry": "yes",
+        "genre": [
+            "Adventure"
+        ],
+        "finalRating": "1",
+        "violence": "1",
+        "tag": []
     }
 ]

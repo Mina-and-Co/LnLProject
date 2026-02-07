@@ -17,7 +17,7 @@
 
     <div class='container'>
         <button class="button" onclick="location.href='search.html'">Search by...</button>
-        <button class="button" onclick="togglePopup0(); resetForm(); setOne()">Review a
+        <button class="button" onclick="toggleAuthorInputOverlay(); resetForm(); resetStarRating()">Review a
             Book</button><br>
         <button onclick="location.href='about.html'" class="button">About</button>
     </div>
@@ -25,7 +25,7 @@
     <form action="/submit" method="POST" id="Survey">
         <div id="popupOverlay0" class="overlay-container">
             <div class="popup-box0">
-                <button class="exit-button" onclick="removeShow0()"> x </button>
+                <button class="exit-button" onclick="hideAuthorDataOverlay()"> x </button>
                 <input list="titleData" type="text" id="dataBook" name="title" placeholder="Type the title."
                     oninput="toggleProceedButton()" />
                 <datalist id="titleData">
@@ -40,14 +40,14 @@
                     <option value="Other Bob">More Different Bob</option>
                 </datalist>
                 <!--Placeholder data-->
-                <button type="button" class="small-button" onclick="removeShow0(), togglePopup()" id="Proceed"
-                    disabled>Proceed</button>
+                <button type="button" class="small-button" onclick="hideAuthorDataOverlay(); toggleFormOverlay()"
+                    id="Proceed">Proceed</button>
             </div>
         </div>
 
         <div id="popupOverlay" class="overlay-container">
             <div class="popup-box">
-                <button class="exit-button" onclick="removeShow()"> x </button>
+                <button class="exit-button" onclick="hideFormOverlay()"> x </button>
                 <h2>Quick Survey</h2>
                 <h2 id="bookName"></h2><!--Put the book id in here where I have them-->
                 <h3>* indicates a required field.</h3>
@@ -223,7 +223,7 @@
     <footer>
         <p>All info that I need to put about the Marylhurst School goes here.</p>
         <a href="index.html">Home</a>
-        <button class="text-button" onclick="togglePopup0()">Review a Book</button>
+        <button class="text-button" onclick="toggleAuthorInputOverlay()">Review a Book</button>
         <a href="about.html">About</a>
         <a href="search.html">Search for a Book</a>
 
