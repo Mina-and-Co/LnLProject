@@ -103,6 +103,11 @@ a:hover {
     background-color: #552a12;
 }
 
+.button:disabled {
+    background-color: #3a993f;
+    opacity: 50%;
+}
+
 .text-button {
     background-color: #3a993f;
     font-family: Arial, Helvetica, sans-serif;
@@ -170,7 +175,7 @@ a:hover {
     cursor: pointer;
 }
 
-input[id=dataBook] {
+input[id=selectedBook] {
     font-family: Arial, Helvetica, sans-serif;
     padding: 9px;
     border: none;
@@ -184,11 +189,12 @@ input[id=dataBook] {
     color: #000000;
 }
 
-input[id=dataBook]::placeholder {
+input[id=selectedBook]::placeholder {
     color: #552a12;
 }
 
-input[id=dataAuthor] {
+/*unused*/
+input[id=selectedAuthor] {
     font-family: Arial, Helvetica, sans-serif;
     padding: 9px;
     border: none;
@@ -202,7 +208,8 @@ input[id=dataAuthor] {
     color: #000000;
 }
 
-input[id=dataAuthor]::placeholder {
+/*unused*/
+input[id=selectedAuthor]::placeholder {
     color: #552a12;
 }
 
@@ -253,11 +260,6 @@ input[id=books] {
     color: rgb(218, 107, 172);
 }
 
-
-.one {
-    color: #ff0000;
-}
-
 .violenceRadio {
     accent-color: #440500;
     cursor: pointer;
@@ -293,21 +295,25 @@ input[id=books] {
     transition: opacity 0.3s ease;
 }
 
-.popup-box {
+.overlay-container.show {
+    display: flex !important;
+}
+
+#bookReviewPopup {
     background: blanchedalmond;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    width: 500px;
-    opacity: 0;
+    width: 600px;
+    height: 80vh;
+    max-height: 80vh;
     transform: scale(0.8);
     animation: fadeInUp 0.5s ease-out forwards;
-    max-height: 80%;
     overflow-y: auto;
     z-index: 1000;
 }
 
-.popup-box0 {
+#bookSelectionPopup {
     background: blanchedalmond;
     padding: 24px;
     border-radius: 12px;

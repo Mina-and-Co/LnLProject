@@ -1,254 +1,517 @@
 [
     {
-        "books": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "2",
-        "violence": "2"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Graphic Novel",
-        "finalRating": "2",
-        "violence": "1"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "3",
-        "violence": "2"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "3",
-        "violence": "2"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": [
-            "strong female protaganist",
-            "healthy male role"
+        "id": 1,
+        "title": "The Hunger Games",
+        "author": "Suzanne Collins",
+        "tags": [
+            "strong female protagonist",
+            "dystopian survival",
+            "rebellion"
         ],
-        "goodSeries": "no",
-        "cry": "yes",
-        "genre": "Romance",
-        "finalRating": "5",
-        "violence": "5"
-    },
-    {
-        "book": "book2",
-        "author": "Other Bob",
-        "tag": "LGBTQIA characters",
-        "goodSeries": "yes",
-        "cry": "no",
-        "genre": "Sports",
-        "finalRating": "5",
-        "violence": "1"
-    },
-    {
-        "book": "My Side of the Mountain",
-        "author": "Jean Craighead George",
-        "tag": [
-            "character driven plot",
-            "unique and/or creative plot"
-        ],
-        "goodSeries": "notASeries",
-        "cry": "no",
-        "genre": [
+        "genres": [
+            "Dystopia",
             "Adventure",
-            "Classic"
-        ],
-        "genre-RealisticFiction": "Realistic Fiction",
-        "finalRating": "5",
-        "violence": "1"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "1",
-        "violence": "1"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "healthy male role",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "4",
-        "violence": "2"
-    },
-    {
-        "book": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "1",
-        "violence": "1"
-    },
-    {
-        "book": "book",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "rating": {
-            "count": "0",
-            "average": "3"
-        },
-        "violence": "1"
-    },
-    {
-        "title": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "3",
-        "violence": "2"
-    },
-    {
-        "title": "book1",
-        "author": "Other Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "5",
-        "violence": "5"
-    },
-    {
-        "title": "book1",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Horror/Scary",
-        "finalRating": "3",
-        "violence": "1"
-    },
-    null,
-    {
-        "title": "book2",
-        "author": "Bob",
-        "tag": "strong female protaganist",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": "Adventure",
-        "finalRating": "1",
-        "violence": "1"
-    },
-    {
-        "title": "book1",
-        "author": "Bob",
-        "tag": [
-            "strong female protaganist"
-        ],
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": [
             "Sci-Fi"
         ],
-        "finalRating": "1",
-        "violence": "1"
+        "ratingAvg": 4.8,
+        "violenceAvg": 4.2,
+        "cryAvg": 3.5
     },
     {
-        "title": "book1",
-        "author": "Bob",
-        "tag": [
-            "strong female protaganist"
+        "id": 2,
+        "title": "Six of Crows",
+        "author": "Leigh Bardugo",
+        "tags": [
+            "diverse cast of characters",
+            "heist",
+            "neurodivergent characters"
         ],
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": [
-            "Sci-Fi"
+        "genres": [
+            "Fantasy",
+            "Adventure"
         ],
-        "finalRating": "1",
-        "violence": "1"
+        "ratingAvg": 4.9,
+        "violenceAvg": 3.8,
+        "cryAvg": 4.0
     },
     {
-        "title": "book2",
-        "author": "Other Bob",
-        "tag": [
-            "strong female protaganist",
+        "id": 3,
+        "title": "The Hate U Give",
+        "author": "Angie Thomas",
+        "tags": [
+            "racially diverse",
+            "character driven plot",
+            "social justice"
+        ],
+        "genres": [
+            "Realistic Fiction"
+        ],
+        "ratingAvg": 4.9,
+        "violenceAvg": 2.1,
+        "cryAvg": 4.7
+    },
+    {
+        "id": 4,
+        "title": "Cemetery Boys",
+        "author": "Aiden Thomas",
+        "tags": [
+            "LGBTQIA characters",
+            "racially diverse",
+            "ghosts"
+        ],
+        "genres": [
+            "Fantasy",
+            "Romance",
+            "Folktales/Myths"
+        ],
+        "ratingAvg": 4.5,
+        "violenceAvg": 1.5,
+        "cryAvg": 3.2
+    },
+    {
+        "id": 5,
+        "title": "Wings of Fire: The Dragonet Prophecy",
+        "author": "Tui T. Sutherland",
+        "tags": [
+            "dragon characters",
+            "unique and/or creative plot",
+            "prophecy"
+        ],
+        "genres": [
+            "Fantasy",
+            "Adventure"
+        ],
+        "ratingAvg": 4.3,
+        "violenceAvg": 3.1,
+        "cryAvg": 1.2
+    },
+    {
+        "id": 6,
+        "title": "A Good Girl's Guide to Murder",
+        "author": "Holly Jackson",
+        "tags": [
+            "strong female protagonist",
+            "mystery",
             "character driven plot"
         ],
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": [
-            "Classic",
-            "Dystopia"
+        "genres": [
+            "Realistic Fiction",
+            "Horror/Scary"
         ],
-        "finalRating": "1",
-        "violence": "1"
+        "ratingAvg": 4.6,
+        "violenceAvg": 2.4,
+        "cryAvg": 2.0
     },
     {
-        "title": "book1",
-        "author": "Bob",
-        "tag": [
-            "strong female protaganist",
-            "healthy male role"
+        "id": 7,
+        "title": "Iron Widow",
+        "author": "Xiran Jay Zhao",
+        "tags": [
+            "strong female protagonist",
+            "LGBTQIA characters",
+            "vengeance"
         ],
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": [
+        "genres": [
+            "Sci-Fi",
+            "Fantasy",
+            "Dystopia"
+        ],
+        "ratingAvg": 4.7,
+        "violenceAvg": 4.9,
+        "cryAvg": 3.0
+    },
+    {
+        "id": 8,
+        "title": "The Chronicles of Narnia",
+        "author": "C.S. Lewis",
+        "tags": [
+            "animal characters",
+            "classic",
+            "magic portals"
+        ],
+        "genres": [
+            "Classic",
+            "Fantasy"
+        ],
+        "ratingAvg": 4.1,
+        "violenceAvg": 2.2,
+        "cryAvg": 1.5
+    },
+    {
+        "id": 9,
+        "title": "Legendborn",
+        "author": "Tracy Deonn",
+        "tags": [
+            "racially diverse",
+            "magic school",
+            "secret societies"
+        ],
+        "genres": [
             "Fantasy",
             "Folktales/Myths"
         ],
-        "finalRating": "1",
-        "violence": "1"
+        "ratingAvg": 4.8,
+        "violenceAvg": 3.5,
+        "cryAvg": 2.8
     },
     {
-        "title": "book2",
-        "author": "Other Bob",
-        "tag": [
-            "LGBTQIA characters",
-            "dragon characters"
+        "id": 10,
+        "title": "Scythe",
+        "author": "Neal Shusterman",
+        "tags": [
+            "unique and/or creative plot",
+            "dystopia",
+            "moral dilemma"
         ],
-        "goodSeries": "notSureYet",
-        "cry": "yes",
-        "genre": [
+        "genres": [
+            "Sci-Fi",
+            "Dystopia"
+        ],
+        "ratingAvg": 4.7,
+        "violenceAvg": 4.1,
+        "cryAvg": 1.9
+    },
+    {
+        "id": 11,
+        "title": "One of Us Is Lying",
+        "author": "Karen M. McManus",
+        "tags": [
+            "mystery",
+            "unreliable narrator",
+            "high school drama"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Horror/Scary"
+        ],
+        "ratingAvg": 4.2,
+        "violenceAvg": 2.0,
+        "cryAvg": 1.5
+    },
+    {
+        "id": 12,
+        "title": "Percy Jackson: The Lightning Thief",
+        "author": "Rick Riordan",
+        "tags": [
+            "neurodivergent characters",
+            "mythology",
+            "humorous"
+        ],
+        "genres": [
+            "Fantasy",
+            "Adventure",
+            "Folktales/Myths"
+        ],
+        "ratingAvg": 4.9,
+        "violenceAvg": 2.8,
+        "cryAvg": 1.0
+    },
+    {
+        "id": 13,
+        "title": "An Ember in the Ashes",
+        "author": "Sabaa Tahir",
+        "tags": [
+            "dual perspective",
+            "martial law",
+            "rebellion"
+        ],
+        "genres": [
+            "Fantasy",
+            "Dystopia"
+        ],
+        "ratingAvg": 4.6,
+        "violenceAvg": 4.5,
+        "cryAvg": 3.8
+    },
+    {
+        "id": 14,
+        "title": "The Cruel Prince",
+        "author": "Holly Black",
+        "tags": [
+            "fae",
+            "political intrigue",
+            "enemies to lovers"
+        ],
+        "genres": [
             "Fantasy",
             "Romance"
         ],
-        "finalRating": "1",
-        "violence": "5"
+        "ratingAvg": 4.4,
+        "violenceAvg": 3.2,
+        "cryAvg": 2.5
     },
     {
-        "title": "book2",
-        "author": "Other Bob",
-        "goodSeries": "yes",
-        "cry": "yes",
-        "genre": [
+        "id": 15,
+        "title": "The Book Thief",
+        "author": "Markus Zusak",
+        "tags": [
+            "historical",
+            "unique and/or creative plot",
+            "war"
+        ],
+        "genres": [
+            "Classic",
+            "Realistic Fiction"
+        ],
+        "ratingAvg": 4.9,
+        "violenceAvg": 3.0,
+        "cryAvg": 5.0
+    },
+    {
+        "id": 16,
+        "title": "Shadow and Bone",
+        "author": "Leigh Bardugo",
+        "tags": [
+            "chosen one",
+            "magic",
+            "grishaverse"
+        ],
+        "genres": [
+            "Fantasy",
             "Adventure"
         ],
-        "finalRating": "1",
-        "violence": "1",
-        "tag": []
+        "ratingAvg": 4.1,
+        "violenceAvg": 2.9,
+        "cryAvg": 2.2
+    },
+    {
+        "id": 17,
+        "title": "Aristotle and Dante Discover the Secrets of the Universe",
+        "author": "Benjamin Alire Sáenz",
+        "tags": [
+            "LGBTQIA characters",
+            "racially diverse",
+            "coming of age"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Romance"
+        ],
+        "ratingAvg": 4.8,
+        "violenceAvg": 1.8,
+        "cryAvg": 4.2
+    },
+    {
+        "id": 18,
+        "title": "Daughter of Smoke & Bone",
+        "author": "Laini Taylor",
+        "tags": [
+            "angels and demons",
+            "unique and/or creative plot",
+            "art"
+        ],
+        "genres": [
+            "Fantasy",
+            "Romance"
+        ],
+        "ratingAvg": 4.3,
+        "violenceAvg": 3.4,
+        "cryAvg": 3.1
+    },
+    {
+        "id": 19,
+        "title": "To All the Boys I've Loved Before",
+        "author": "Jenny Han",
+        "tags": [
+            "racially diverse",
+            "family dynamics",
+            "fake dating"
+        ],
+        "genres": [
+            "Romance",
+            "Realistic Fiction"
+        ],
+        "ratingAvg": 4.5,
+        "violenceAvg": 1.0,
+        "cryAvg": 2.0
+    },
+    {
+        "id": 20,
+        "title": "Cinder",
+        "author": "Marissa Meyer",
+        "tags": [
+            "cyborgs",
+            "fairytale retelling",
+            "plague"
+        ],
+        "genres": [
+            "Sci-Fi",
+            "Fantasy",
+            "Folktales/Myths"
+        ],
+        "ratingAvg": 4.4,
+        "violenceAvg": 2.5,
+        "cryAvg": 1.8
+    },
+    {
+        "id": 21,
+        "title": "Red Queen",
+        "author": "Victoria Aveyard",
+        "tags": [
+            "social hierarchy",
+            "betrayal",
+            "elemental powers"
+        ],
+        "genres": [
+            "Fantasy",
+            "Dystopia"
+        ],
+        "ratingAvg": 3.9,
+        "violenceAvg": 3.6,
+        "cryAvg": 2.8
+    },
+    {
+        "id": 22,
+        "title": "The Ballad of Songbirds and Snakes",
+        "author": "Suzanne Collins",
+        "tags": [
+            "villain origin story",
+            "survival",
+            "philosophy"
+        ],
+        "genres": [
+            "Dystopia",
+            "Sci-Fi"
+        ],
+        "ratingAvg": 4.2,
+        "violenceAvg": 4.0,
+        "cryAvg": 3.0
+    },
+    {
+        "id": 23,
+        "title": "We Were Liars",
+        "author": "E. Lockhart",
+        "tags": [
+            "amnesia",
+            "family secrets",
+            "twist ending"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Horror/Scary"
+        ],
+        "ratingAvg": 4.0,
+        "violenceAvg": 1.5,
+        "cryAvg": 4.5
+    },
+    {
+        "id": 24,
+        "title": "Firekeeper's Daughter",
+        "author": "Angeline Boulley",
+        "tags": [
+            "Indigenous culture",
+            "undercover",
+            "mystery"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Adventure"
+        ],
+        "ratingAvg": 4.7,
+        "violenceAvg": 3.5,
+        "cryAvg": 3.2
+    },
+    {
+        "id": 25,
+        "title": "Children of Blood and Bone",
+        "author": "Tomi Adeyemi",
+        "tags": [
+            "West African mythology",
+            "magic",
+            "oppression"
+        ],
+        "genres": [
+            "Fantasy",
+            "Folktales/Myths"
+        ],
+        "ratingAvg": 4.6,
+        "violenceAvg": 4.1,
+        "cryAvg": 3.5
+    },
+    {
+        "id": 26,
+        "title": "Eleanor & Park",
+        "author": "Rainbow Rowell",
+        "tags": [
+            "neurodivergent characters",
+            "first love",
+            "difficult home life"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Romance"
+        ],
+        "ratingAvg": 4.1,
+        "violenceAvg": 2.5,
+        "cryAvg": 4.8
+    },
+    {
+        "id": 27,
+        "title": "Divergent",
+        "author": "Veronica Roth",
+        "tags": [
+            "factions",
+            "fears",
+            "strong female protagonist"
+        ],
+        "genres": [
+            "Dystopia",
+            "Sci-Fi",
+            "Adventure"
+        ],
+        "ratingAvg": 4.0,
+        "violenceAvg": 3.8,
+        "cryAvg": 2.5
+    },
+    {
+        "id": 28,
+        "title": "The Fault in Our Stars",
+        "author": "John Green",
+        "tags": [
+            "terminal illness",
+            "philosophy",
+            "humorous"
+        ],
+        "genres": [
+            "Realistic Fiction",
+            "Romance"
+        ],
+        "ratingAvg": 4.7,
+        "violenceAvg": 1.2,
+        "cryAvg": 5.0
+    },
+    {
+        "id": 29,
+        "title": "Stalking Jack the Ripper",
+        "author": "Kerri Maniscalco",
+        "tags": [
+            "historical",
+            "forensics",
+            "strong female protagonist"
+        ],
+        "genres": [
+            "Horror/Scary",
+            "Realistic Fiction"
+        ],
+        "ratingAvg": 4.3,
+        "violenceAvg": 3.9,
+        "cryAvg": 1.5
+    },
+    {
+        "id": 30,
+        "title": "Caraval",
+        "author": "Stephanie Garber",
+        "tags": [
+            "magic game",
+            "sisterhood",
+            "whimsical"
+        ],
+        "genres": [
+            "Fantasy",
+            "Romance"
+        ],
+        "ratingAvg": 4.4,
+        "violenceAvg": 1.8,
+        "cryAvg": 2.1
     }
 ]

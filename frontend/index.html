@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Marylhurst Herons Library</title>
+
+    <link rel="icon" href="assets/book.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to The Marylhurst School Book Finding Website!</h1>
+    </header>
+
+    <main>
+        <div class='container'>
+            <button class="button" onclick="location.href='search.html'">Search by...</button>
+            <button class="button" onclick="showBookSelectionOverlay()">Review a Book</button>
+            <br />
+            <button onclick="location.href='about.html'" class="button">About</button>
+        </div>
+
+        <div id="bookSelectionOverlay" class="overlay-container">
+            <div id="bookSelectionPopup">
+                <button type="button" class="exit-button" onclick="hideBookSelectionOverlay()">x</button>
+
+                <input list="titleData" type="text" id="selectedBook" name="title" placeholder="Type the title."
+                    oninput="toggleProceedButton()" />
+                <datalist id="titleData"></datalist>
+
+                <button type="button" class="small-button" onclick="showBookReviewFormOverlay()" id="proceed">
+                    Proceed
+                </button>
+            </div>
+        </div>
+
+        <div id="bookReviewOverlay" class="overlay-container">
+            <form action="/book/review/0" method="POST" id="bookReviewForm" oninput="validateBookReviewForm()">
+
+                <div id="bookReviewPopup">
+                    <button id="closeReviewButton" type="button" class="exit-button"
+                        onclick="hideBookReviewFormOverlay()">x</button>
+                    <h2>Quick Survey</h2>
+                    <h2 id="bookName"></h2>
+                    <h3>* indicates a required field.</h3>
+                    <h4>Thanks for filling out this survey. It helps a lot!</h4>
+
+                    <!--Form action="submit" tells the server to go to the url /submit. That's what POST does.
+                        The server uses name to identify the data.-->
+                    <h4>Does this book have...</h4>
+
+                    <!--Tags Section-->
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="strong female protaganist"
+                            id="femalepro" />
+                        ...strong female
+                        protagonists?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="character driven plot"
+                            id="cdplot" />
+                        ...a
+                        character driven plot?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="LGBTQIA characters"
+                            id="LGBTQ" />
+                        ...LGBTQIA characters?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="neurodivergent characters"
+                            id="nd" />
+                        ...neurodivergent characters?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="racially diverse"
+                            id="raciallyDiverse" />
+                        ...racially diverse
+                        characters?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="diverse cast of characters"
+                            id="diverse" />
+                        ...a diverse cast of
+                        characters?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="dragon characters"
+                            id="dragons" />
+                        ...dragons?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="animal characters"
+                            id="animals" />
+                        ...animal characters?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="unique and/or creative plot"
+                            id="goodPlot" />
+                        ...a unique/creative
+                        plot?
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" name="tags" value="healthy male role"
+                            id="malePro" />
+                        ...a
+                        healthy male role?
+                    </label>
+                    <br />
+                    <br />
+
+                    <h3>*</h3>
+                    <h5>(Bear with me here) Did this book make you cry? (Inwardly or otherwise)</h5><br>
+                    <label>
+                        <input type="radio" class="nice-radio" id="yesCry" value="yes" name="cry" required> yes
+                    </label>
+
+                    <label>
+                        <input type="radio" class="nice-radio" id="noCry" value="no" name="cry" required> no
+                    </label>
+                    <br />
+                    <br />
+
+                    <h3>*</h3>
+                    <h5>What genre would you say this book is? Select one or more.</h5>
+                    <br />
+
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Adventure" id="genre-Adventure"
+                            name="genres">
+                        Adventure
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Classic" id="genre-Classic" name="genres">
+                        Classic
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Dystopia" id="genre-Dystopia" name="genres">
+                        Dystopia
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Fantasy" id="genre-Fantasy" name="genres">
+                        Fantasy
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Folktales/Myths" id="genre-Folktales/Myths"
+                            name="genres">
+                        Folktale/Myth
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Graphic Novel" id="genre-GraphicNovel"
+                            name="genres">
+                        Graphic Novel
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Historical Fiction"
+                            id="genre-HistoricalFiction" name="genres">
+                        Historical Fiction
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Sci-Fi" id="genre-Sci-Fi" name="genres">
+                        Sci-Fi
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Memoir/Biography"
+                            id="genre-Memoir/Biography" name="genres">
+                        Memoir/Biography
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Nonfiction" id="genre-Nonfiction"
+                            name="genres">
+                        Nonfiction
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Poetry" id="genre-Poetry" name="genres">
+                        Poetry
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Realistic Fiction" name="genres"
+                            id="genre-RealisticFiction">
+                        Realistic Fiction
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Romance" id="genre-Romance" name="genres">
+                        Romance
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Sports" id="genre-Sports" name="genres">
+                        Sports
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" class="nice-checkbox" value="Horror/Scary" id="genre-Horror/Scary"
+                            name="genres">
+                        Horror/Scary
+                    </label>
+                    <br />
+                    <br />
+
+                    <h3>*</h3>
+                    <h5>Rate this book from one to five.</h5>
+                    <br />
+                    <div class="star-rating">
+                        <span onclick="setStarRating(1)" name="star" id="star1" value="1" class="star">★</span>
+                        <span onclick="setStarRating(2)" name="star" id="star2" value="2" class="star">★</span>
+                        <span onclick="setStarRating(3)" name="star" id="star3" value="3" class="star">★</span>
+                        <span onclick="setStarRating(4)" name="star" id="star4" value="4" class="star">★</span>
+                        <span onclick="setStarRating(5)" name="star" id="star5" value="5" class="star">★</span>
+                    </div>
+                    <br />
+                    <h5>Rating is: <span id="output">1</span>/5</h5>
+
+                    <!--Wrap these in labels-->
+                    <input type="radio" style="display: none;" value="1" id="rating1" required name="finalRating"
+                        checked="checked">
+                    <input type="radio" style="display: none;" value="2" id="rating2" required name="finalRating">
+                    <input type="radio" style="display: none;" value="3" id="rating3" required name="finalRating">
+                    <input type="radio" style="display: none;" value="4" id="rating4" required name="finalRating">
+                    <input type="radio" style="display: none;" value="5" id="rating5" required name="finalRating">
+                    <br />
+
+
+                    <h3>*</h3>
+                    <h5>How violent was this book? Be as authentic as possible.</h5>
+                    <br />
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="1" id="violence1" required
+                            checked>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="2" id="violence2" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="3" id="violence3" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="4" id="violence4" required>
+                    </label>
+                    <label>
+                        <input type="radio" name="violence" class="violenceRadio" value="5" id="violence5" required>
+                    </label>
+
+                    <button type="submit" class="button" id="bookReviewFormSubmitBtn" disabled>Submit!</button>
+                </div>
+            </form>
+        </div>
+
+        <a target="_blank" href="https://www.themarylhurstschool.org/"> <img src="assets/marylhurstSchool.webp"
+                class="img1"
+                title="The Marylhurst School Website"></a><!--change img1, img2, and imagecontainer class-->
+
+        <div class="image-container">
+            <a target="_blank" href="https://www.librarycat.org/lib/MarylhurstHerons"><img class="img2"
+                    src="assets/cat.png" title="The Marylhurst School Library"></a>
+            <p>Check out your book!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>All info that I need to put about the Marylhurst School goes here.</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <button class="text-button" onclick="showBookSelectionOverlay()">Review a Book</button>
+            <a href="about.html">About</a>
+            <a href="search.html">Search for a Book</a>
+        </nav>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
