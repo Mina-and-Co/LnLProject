@@ -9,7 +9,8 @@
   "author": "Molly Grubbs",
   "license": "MIT",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",

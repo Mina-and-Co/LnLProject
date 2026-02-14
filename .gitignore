@@ -1,1 +1,6 @@
 node_modules
+library.db
+library.db-journal
+library.db-wal
+library.db-shm
+about.html

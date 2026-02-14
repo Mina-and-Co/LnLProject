@@ -2,47 +2,105 @@
 <html>
 
 <head>
-    <title>
-        Library
-    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Marylhurst Herons Library</title>
 
-    <link rel="icon" href="/assets/book.png" type="image/x-icon"><!--placeholder image (maybe)-->
-    <link rel="stylesheet" href="/styles.css">
-    <h1>Search By...</h1>
+    <link rel="icon" href="assets/book.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h2>Genre</h2>
-    <button type="button" class="button" name="genreSearch" id="AdventureSearch"
-        onclick="search('Adventure')">Adventure</button>
-    <button type="button" class="button" name="genreSearch" id="ClassicSearch"
-        onclick="search('Classic')">Classic</button>
-    <button type="button" class="button" name="genreSearch" id="DystopiaSearch"
-        onclick="search('Dystopia')">Dystopia</button>
-    <button type="button" class="button" name="genreSearch" id="FantasySearch"
-        onclick="search('Fantasy')">Fantasy</button>
-    <button type="button" class="button" name="genreSearch" id="FolktaleSearch"
-        onclick="search('Folktale')">Folktale/Myth</button>
-    <button type="button" class="button" name="genreSearch" id="GraphicNovelSearch"
-        onclick="search('GraphicNovel')">Graphic Novel</button>
-    <button type="button" class="button" name="genreSearch" id="Historical"
-        onclick="search('HistoricalFiction')">Historical Fiction</button>
-    <button type="button" class="button" name="genreSearch" id="Sci-FiSearch" onclick="search('Sci-Fi')">Sci-Fi</button>
-    <button type="button" class="button" name="genreSearch" id="BiographySearch"
-        onclick="search('MemoirBiography')">Memoir/Biography</button>
-    <button type="button" class="button" name="genreSearch" id="NonfictionSearch"
-        onclick="search('Nonfiction')">Nonfiction</button>
-    <button type="button" class="button" name="genreSearch" id="PoetrySearch" onclick="search('Poetry')">Poetry</button>
-    <button type="button" class="button" name="genreSearch" id="RealisticFictionSearch"
-        onclick="search('RealisticFiction')">Realistic Fiction</button>
-    <button type="button" class="button" name="genreSearch" id="RomanceSearch"
-        onclick="search('Romance')">Romance</button>
-    <button type="button" class="button" name="genreSearch" id="SportsSearch" onclick="search('Sports')">Sports</button>
-    <button type="button" class="button" name="genreSearch" id="HorrorScarySearch"
-        onclick="search('HorrorScary')">Horror/Scary</button>
+
+    <div style="display: flex; direction: row; justify-content: space-between;"> <button id="backButton">Go
+            Back</button>
+        <h1>Books</h1>
+        <button class="button" id="addBookButton" onclick="showAddBooksOverlay()">Add Book</button>
+    </div>
+    <div class="add-overlay-container" id="overlayContainer">
+        <div id="addBookOverlay">
+            <form action="/books/add" method="put" id="newBookForm">
+                <button id="closeButton" type="button" class="exit-button" onclick="hideAddBooksOverlay()">x</button>
+                <br />
+                <br />
+                <input type="text" class="new-book-input" placeholder="Type the title." name="titleInput">
+                <input type="text" class="new-book-input" placeholder="Type the author." name="authorInput">
+                <button class="button" type="submit" id="new-submit">Add Book</button>
+            </form>
+        </div>
+    </div>
 
 
-    <script src="findABookScript.js"></script>
+    <div class="searchContainer">
+        <form id="bookSearchForm" method="get" class="searchContainer">
+            <input type="text" class="bookSearchbar" id="bookSearch" placeholder="Search by title">
+            <button type="submit" class="searchButton" id="searchButton"></button>
+        </form>
+    </div>
+    <br />
+
+
+    <select id="tagsDropdown" class="tagsDropdown" placeholder="Search for books by tag...">
+        <option disabled selected value="">Filter by tag...</option>
+        <option value="war" class="dropdownOptionTags">War</option>
+        <option class="dropdownOptionTags" value="strong female protagonist">Strong Female Protagonist</option>
+        <option class="dropdownOptionTags" value="social justice">Social Justice</option>
+        <option class="dropdownOptionTags" value="diverse cast of characters">Diverse Cast of Characters</option>
+        <option class="dropdownOptionTags" value="found family">Found Family</option>
+        <option class="dropdownOptionTags" value="dark/gritty">Dark/Gritty</option>
+        <option class="dropdownOptionTags" value="unique and/or creative plot">Unique and/or Creative Plot</option>
+        <option class="dropdownOptionTags" value="LGBTQIA characters">LGBTQIA Characters</option>
+        <option class="dropdownOptionTags" value="thought provoking">Thought Provoking</option>
+        <option class="dropdownOptionTags" value="grief/loss">Greif/Loss</option>
+        <option class="dropdownOptionTags" value="character driven plot">Character Driven Plot</option>
+        <option class="dropdownOptionTags" value="racially diverse">Racially Diverse</option>
+        <option class="dropdownOptionTags" value="disability representation">Disability Representation</option>
+        <option class="dropdownOptionTags" value="trauma">Trauma</option>
+        <option class="dropdownOptionTags" value="light/wholesome">Light/Wholesome</option>
+        <option class="dropdownOptionTags" value="animal characters">Animal Characters</option>
+        <option class="dropdownOptionTags" value="neurodivergent characters">Neurodivergent Characters</option>
+        <option class="dropdownOptionTags" value="dragon characters">Dragon Characters</option>
+        <option class="dropdownOptionTags" value="healthy male role">Healthy Male Role</option>
+        <option class="dropdownOptionTags" value="healthy female role">Healthy Female Role</option>
+        <option class="dropdownOptionTags" value="time travel">Time Travel</option>
+        <option class="dropdownOptionTags" value="artificial intelligence">Artificial Intelligence</option>
+        <option class="dropdownOptionTags" value="humor">Humor</option>
+    </select>
+
+    <select id="genresDropdown" class="genresDropdown" placeholder="Search for books by tag...">
+        <option disabled selected value="">Filter by genre...</option>
+        <option value="Adventure" class="dropdownOptionGenres">Adventure</option>
+        <option class="dropdownOptionGenres" value="Classic">Classic</option>
+        <option class="dropdownOptionGenres" value="Dystopian">Dystopian</option>
+        <option class="dropdownOptionGenres" value="Fantasy">Fantasy</option>
+        <option class="dropdownOptionGenres" value="Folktale/Myth">Folktale/Myth</option>
+        <option class="dropdownOptionGenres" value="Graphic Novel">Graphic Novel</option>
+        <option class="dropdownOptionGenres" value="Historical Fiction">Historical Fiction</option>
+        <option class="dropdownOptionGenres" value="Sci-Fi">Sci-Fi</option>
+        <option class="dropdownOptionGenres" value="Memoir/Biography">Memoir/Biography</option>
+        <option class="dropdownOptionGenres" value="Nonfiction">Nonfiction</option>
+        <option class="dropdownOptionGenres" value="Poetry">Poetry</option>
+        <option class="dropdownOptionGenres" value="Realistic Fiction">Realistic Fiction</option>
+        <option class="dropdownOptionGenres" value="Romance">Romance</option>
+        <option class="dropdownOptionGenres" value="Sports">Sports</option>
+        <option class="dropdownOptionGenres" value="Horror/Scary">Horror/Scary</option>
+    </select>
+
+    <div id="table-wrapper"></div>
+    <br /> <br /> <br /> <br /> <br /> <br /><!--Heehehehhe sorry sorta it works-->
+
+    <footer>
+        <p>All info that I need to put about the Marylhurst School goes here.</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="search.html">Books</a>
+        </nav>
+    </footer>
+
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <script src="books.js"></script>
 </body>
 
 </html>

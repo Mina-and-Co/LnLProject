@@ -1,0 +1,281 @@
+[
+  {
+    "title": "The Hunger Games",
+    "author": "Suzanne Collins",
+    "num_reviews": 18,
+    "rating_sum": 86,
+    "violence_sum": 72,
+    "cry_sum": 12,
+    "genres": ["Dystopian", "Adventure", "Sci-Fi"],
+    "tags": ["strong female protagonist", "war", "social justice"]
+  },
+  {
+    "title": "Six of Crows",
+    "author": "Leigh Bardugo",
+    "num_reviews": 15,
+    "rating_sum": 74,
+    "violence_sum": 58,
+    "cry_sum": 5,
+    "genres": ["Fantasy", "Adventure"],
+    "tags": ["diverse cast of characters", "found family", "dark/gritty"]
+  },
+  {
+    "title": "The Hate U Give",
+    "author": "Angie Thomas",
+    "num_reviews": 0,
+    "genres": ["Realistic Fiction"],
+    "tags": []
+  },
+  {
+    "title": "Cinder",
+    "author": "Marissa Meyer",
+    "num_reviews": 12,
+    "rating_sum": 48,
+    "violence_sum": 24,
+    "cry_sum": 2,
+    "genres": ["Sci-Fi", "Fantasy"],
+    "tags": ["strong female protagonist", "unique and/or creative plot"]
+  },
+  {
+    "title": "Cemetery Boys",
+    "author": "Aiden Thomas",
+    "num_reviews": 7,
+    "rating_sum": 35,
+    "violence_sum": 10,
+    "cry_sum": 3,
+    "genres": ["Fantasy", "Romance", "Folktale/Myth"],
+    "tags": ["LGBTQIA characters"]
+  },
+  {
+    "title": "Scythe",
+    "author": "Neal Shusterman",
+    "num_reviews": 20,
+    "rating_sum": 94,
+    "violence_sum": 88,
+    "cry_sum": 4,
+    "genres": ["Dystopian", "Sci-Fi"],
+    "tags": ["thought provoking", "dark/gritty"]
+  },
+  {
+    "title": "A Good Girl's Guide to Murder",
+    "author": "Holly Jackson",
+    "num_reviews": 0,
+    "genres": ["Realistic Fiction", "Horror/Scary"],
+    "tags": []
+  },
+  {
+    "title": "Iron Widow",
+    "author": "Xiran Jay Zhao",
+    "num_reviews": 14,
+    "rating_sum": 60,
+    "violence_sum": 68,
+    "cry_sum": 5,
+    "genres": ["Sci-Fi", "Fantasy"],
+    "tags": ["strong female protagonist", "dark/gritty"]
+  },
+  {
+    "title": "The Book Thief",
+    "author": "Markus Zusak",
+    "num_reviews": 19,
+    "rating_sum": 92,
+    "violence_sum": 45,
+    "cry_sum": 18,
+    "genres": ["Historical Fiction", "Classic"],
+    "tags": ["grief/loss", "war"]
+  },
+  {
+    "title": "Legendborn",
+    "author": "Tracy Deonn",
+    "num_reviews": 0,
+    "genres": ["Fantasy", "Folktale/Myth"],
+    "tags": []
+  },
+  {
+    "title": "One of Us Is Lying",
+    "author": "Karen M. McManus",
+    "num_reviews": 11,
+    "rating_sum": 40,
+    "violence_sum": 22,
+    "cry_sum": 1,
+    "genres": ["Realistic Fiction", "Horror/Scary"],
+    "tags": ["character driven plot"]
+  },
+  {
+    "title": "The Cruel Prince",
+    "author": "Holly Black",
+    "num_reviews": 16,
+    "rating_sum": 65,
+    "violence_sum": 40,
+    "cry_sum": 3,
+    "genres": ["Fantasy", "Romance"],
+    "tags": ["dark/gritty"]
+  },
+  {
+    "title": "Aristotle and Dante Discover the Secrets of the Universe",
+    "author": "Benjamin Alire Sáenz",
+    "num_reviews": 9,
+    "rating_sum": 44,
+    "violence_sum": 10,
+    "cry_sum": 5,
+    "genres": ["Realistic Fiction", "Romance"],
+    "tags": ["LGBTQIA characters", "racially diverse"]
+  },
+  {
+    "title": "Red Queen",
+    "author": "Victoria Aveyard",
+    "num_reviews": 0,
+    "genres": ["Fantasy", "Dystopian"],
+    "tags": ["strong female protagonist"]
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "author": "John Green",
+    "num_reviews": 20,
+    "rating_sum": 96,
+    "violence_sum": 20,
+    "cry_sum": 20,
+    "genres": ["Realistic Fiction", "Romance"],
+    "tags": ["disability representation", "grief/loss"]
+  },
+  {
+    "title": "Children of Blood and Bone",
+    "author": "Tomi Adeyemi",
+    "num_reviews": 5,
+    "rating_sum": 23,
+    "violence_sum": 18,
+    "cry_sum": 2,
+    "genres": ["Fantasy", "Folktale/Myth"],
+    "tags": ["racially diverse", "war"]
+  },
+  {
+    "title": "An Ember in the Ashes",
+    "author": "Sabaa Tahir",
+    "num_reviews": 10,
+    "rating_sum": 47,
+    "violence_sum": 44,
+    "cry_sum": 4,
+    "genres": ["Fantasy", "Dystopian"],
+    "tags": ["dark/gritty"]
+  },
+  {
+    "title": "Illuminae",
+    "author": "Amie Kaufman & Jay Kristoff",
+    "num_reviews": 6,
+    "rating_sum": 29,
+    "violence_sum": 22,
+    "cry_sum": 2,
+    "genres": ["Sci-Fi", "Horror/Scary"],
+    "tags": ["artificial intelligence", "unique and/or creative plot"]
+  },
+  {
+    "title": "To All the Boys I've Loved Before",
+    "author": "Jenny Han",
+    "num_reviews": 18,
+    "rating_sum": 72,
+    "violence_sum": 18,
+    "cry_sum": 3,
+    "genres": ["Romance", "Realistic Fiction"],
+    "tags": ["light/wholesome", "humor"]
+  },
+  {
+    "title": "Divergent",
+    "author": "Veronica Roth",
+    "num_reviews": 0,
+    "genres": ["Dystopian", "Sci-Fi"],
+    "tags": []
+  },
+  {
+    "title": "Long Way Down",
+    "author": "Jason Reynolds",
+    "num_reviews": 4,
+    "rating_sum": 20,
+    "violence_sum": 10,
+    "cry_sum": 3,
+    "genres": ["Poetry", "Realistic Fiction"],
+    "tags": ["racially diverse"]
+  },
+  {
+    "title": "Firekeeper's Daughter",
+    "author": "Angeline Boulley",
+    "num_reviews": 2,
+    "rating_sum": 9,
+    "violence_sum": 6,
+    "cry_sum": 1,
+    "genres": ["Realistic Fiction", "Adventure"],
+    "tags": ["strong female protagonist", "racially diverse"]
+  },
+  {
+    "title": "We Were Liars",
+    "author": "E. Lockhart",
+    "num_reviews": 0,
+    "genres": ["Realistic Fiction"],
+    "tags": ["trauma"]
+  },
+  {
+    "title": "Heartstopper",
+    "author": "Alice Oseman",
+    "num_reviews": 20,
+    "rating_sum": 100,
+    "violence_sum": 20,
+    "cry_sum": 5,
+    "genres": ["Graphic Novel", "Romance"],
+    "tags": ["LGBTQIA characters", "light/wholesome", "found family"]
+  },
+  {
+    "title": "Shadow and Bone",
+    "author": "Leigh Bardugo",
+    "num_reviews": 12,
+    "rating_sum": 48,
+    "violence_sum": 30,
+    "cry_sum": 2,
+    "genres": ["Fantasy", "Adventure"],
+    "tags": ["war"]
+  },
+  {
+    "title": "Simon vs. the Homo Sapiens Agenda",
+    "author": "Becky Albertalli",
+    "num_reviews": 3,
+    "rating_sum": 13,
+    "violence_sum": 3,
+    "cry_sum": 1,
+    "genres": ["Romance", "Realistic Fiction"],
+    "tags": ["LGBTQIA characters"]
+  },
+  {
+    "title": "The 5th Wave",
+    "author": "Rick Yancey",
+    "num_reviews": 6,
+    "rating_sum": 24,
+    "violence_sum": 22,
+    "cry_sum": 2,
+    "genres": ["Sci-Fi", "Adventure"],
+    "tags": []
+  },
+  {
+    "title": "Caraval",
+    "author": "Stephanie Garber",
+    "num_reviews": 0,
+    "genres": ["Fantasy", "Romance"],
+    "tags": []
+  },
+  {
+    "title": "Wings of Fire",
+    "author": "Tui T. Sutherland",
+    "num_reviews": 17,
+    "rating_sum": 72,
+    "violence_sum": 55,
+    "cry_sum": 2,
+    "genres": ["Fantasy", "Adventure"],
+    "tags": ["animal characters"]
+  },
+  {
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "num_reviews": 14,
+    "rating_sum": 68,
+    "violence_sum": 28,
+    "cry_sum": 5,
+    "genres": ["Dystopian", "Sci-Fi", "Classic"],
+    "tags": ["thought provoking"]
+  }
+]
