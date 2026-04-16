@@ -20,12 +20,14 @@ if (bookId) {
             if (!book) {
                 return;
             }
-            console.log("Fetched book data", book);
 
             const displayBookName = document.getElementById("bookTitle");
-            const displayTitleName = document.getElementById("bookAuthor");
+            const displayEditBookName = document.getElementById("bookTitleInput");
+            const displayAuthorName = document.getElementById("bookAuthor");
+            const displayEditAuthorName = document.getElementById("bookAuthorInput");
             const displayReviewCount = document.getElementById("reviewCount");
             const tagsContainer = document.getElementById("tagsList");
+            const tagsContainerEdit = document.getElementById("tagsListEditing");
             const idHidden = document.getElementById("ID");
 
             const displayViolence = document.getElementById("violence");
@@ -55,48 +57,133 @@ if (bookId) {
             }
 
             displayBookName.innerHTML = `${book.title}`;
-            displayTitleName.innerHTML = `${book.author}`;
+            displayEditBookName.value = `${book.title}`;
+            displayAuthorName.innerHTML = `${book.author}`;
+            displayEditAuthorName.value = `${book.author}`;
             displayReviewCount.innerHTML = `Reviews: ${book.numReviews}`
             idHidden.innerHTML = `${book.id}`;
 
             document.getElementById("reviewBtn").addEventListener("click", () => showBookReviewFormOverlay(book.id));
 
             const tags = book.tags || [];
-            let i = tags.length;
 
-            while (i >= 1) {
-                const tagString = tags[0];
-                const tag = JSON.parse(tagString);
+            tags.forEach((tagItem) => {
+                const tag = (typeof tagItem === "string") ? JSON.parse(tagItem) : tagItem;
                 if (tag && tag.name) {
-                    tagsContainer.innerHTML += `<p class="bookIdTextTags">${tag.name}</p>`;
-                    tags.shift();
-                    i--;
-                } else {
-                    break;
+                    let safeTagName = tag.name.replace(/\s+/g, '-');
+                    tagsContainer.innerHTML += `<p class="bookIdTextTags">${tag.name}</p> <br />`;
+                    tagsContainerEdit.innerHTML += `<div id="${safeTagName}" value="${tag.name}"><button type="button" class="remove-item" onclick=deleteFromTagsList('${safeTagName}')>🗑</button> <p class="bookIdTextTags">${tag.name}</p> </div > `;
                 }
-            }
+            });
 
             const genres = book.genres || [];
-            let g = genres.length;
             const genresContainer = document.getElementById("genresContainer");
-            while (g >= 1) {
-                const genreString = genres[0];
-                console.log(genreString);
-                const genre = JSON.parse(genreString);
+            const genresContainerEditing = document.getElementById("genresContainerEditing");
+            genres.forEach((genreItem) => {
+                const genre = (typeof genreItem === "string") ? JSON.parse(genreItem) : genreItem;
                 if (genre && genre.name) {
-                    genresContainer.innerHTML += `<p class="bookIdTextGenres">${genre.name}</p>`;
-                    genres.shift();
-                    g--;
-                } else {
-                    break;
+                    let safeGenreName = genre.name.replace(/\s+/g, '-');
+                    genresContainer.innerHTML += `<p class= "bookIdTextGenres" > ${genre.name}</p > <br />`;
+                    genresContainerEditing.innerHTML += `<div id="${safeGenreName}" value="${genre.name}"> <button type="button" class="remove-item" onclick=deleteFromList('${safeGenreName}')>🗑</button> <p class="bookIdTextGenres">${genre.name}</p></div> `;
                 }
-            }
+            });
+
 
         }).catch(error => {
             console.error("Problem fetching book data:", error);
         });
 } else {
     console.error("No book ID in url.");
+}
+
+function deleteFromList(genre) {
+    let genreToDelete = document.getElementById(genre);
+    genreToDelete.remove();
+}
+
+function deleteFromTagsList(tag) {
+    let tagToDelete = document.getElementById(tag);
+    tagToDelete.remove();
+}
+
+document.getElementById("tagsDropdownEditing")
+    .addEventListener('change', async function (event) {
+        const tagToAdd = event.currentTarget.value;
+        const tagText = tagToAdd.replace(/-/g, ' ');
+        const exists = document.getElementById(tagToAdd);
+        if (exists) {
+            alert("Tag has already been added.");
+        } else {
+            let tagsContainer = document.getElementById("tagsListEditing");
+            tagsContainer.innerHTML += `<div value="${tagText}" id="${tagToAdd}"> <button type="button" class="remove-item" onclick=deleteFromTagsList("${tagToAdd}")>🗑</button> <p class="bookIdTextTags">${tagText}</p></div >`;
+        }
+    });
+
+document.getElementById("genresDropdownEditing")
+    .addEventListener('change', async function (event) {
+        const genreToAdd = event.currentTarget.value;
+        const genreText = genreToAdd.replace(/-/g, ' ');
+        const exists = document.getElementById(genreToAdd);
+        if (exists) {
+            alert("Genre has already been added.");
+        } else {
+            let genresContainer = document.getElementById("genresContainerEditing");
+            genresContainer.innerHTML += `<div value="${genreText}" id="${genreToAdd}"> <button type="button" class="remove-item" onclick=deleteFromList("${genreToAdd}")>🗑</button> <p class="bookIdTextTags">${genreText}</p></div >`;
+        }
+    });
+
+document.getElementById("editBookForm").addEventListener("submit",
+    async function (event) {
+        event.preventDefault();
+
+        const title = document.getElementById("bookTitleInput").value;
+        const author = document.getElementById("bookAuthorInput").value;
+
+        const allTags = document.getElementById("tagsListEditing").children;
+        const tags = Array.from(allTags).map(tag => tag.getAttribute('value')).filter(Boolean);
+
+        const allGenres = document.getElementById("genresContainerEditing").children;
+        const genres = Array.from(allGenres).map(genre => genre.getAttribute('value')).filter(Boolean);
+
+        const formData = {
+            title: title,
+            author: author,
+            tags: tags,
+            genres: genres,
+        };
+
+        try {
+            const response = await fetch(`/books/${bookId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            if (!response.ok) {
+                const errorDetails = await response.text();
+                throw new Error("Response not ok:" + errorDetails);
+            }
+
+            const result = await response.json();
+            location.reload();
+        } catch (error) {
+            console.error("Error editing book:", error);
+            alert("Error submitting the form.");
+        }
+    });
+
+// Hide and show
+async function editMode() {
+    runWithAuth("Whoa there! This is a Mary operation. What's the password?", () => {
+        document.getElementById("viewing").style.display = "none";
+        document.getElementById("editing").style.display = "block";
+    });
+}
+
+function viewMode() {
+    document.getElementById("viewing").style.display = "block";
+    document.getElementById("editing").style.display = "none";
 }
 
 // Book Review Form
@@ -130,10 +217,8 @@ async function showBookReviewFormOverlay(bookIdValue) {
 }
 
 function hideBookReviewFormOverlay() {
-    console.log("Hiding overlay...");
     const overlay = document.getElementById("bookReviewOverlay");
     overlay.classList.remove("show");
-    console.log("Hidden!");
 }
 
 //Book Review Form
@@ -238,8 +323,6 @@ function setStarRating(rating) {
         stars[i].className = "star " + colorClass;
     }
 
-    document.getElementById("output").innerText = rating;
-
     const radioButton = document.getElementById("rating" + rating);
     if (radioButton) {
         radioButton.checked = true;
@@ -279,16 +362,10 @@ async function deleteBook(id) {
     }
 }
 
-function deleteWithButton() {
-    const password = "password";
-    let passwordEntered = prompt("Whoa there! This is a Mary operation. What's the password?");
-    switch (passwordEntered) {
-        case password:
-            if (confirm("Are you sure you want to delete this book?") == true) {
-                deleteBook(bookId);
-            }
-            break;
-        default:
-            alert("Bye.");
-    }
+async function deleteWithButton() {
+    runWithAuth("Whoa there! This is a Mary operation. What's the password?", () => {
+        if (confirm("Are you sure you want to delete this book?") == true) {
+            deleteBook(bookId);
+        }
+    });
 }

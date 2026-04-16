@@ -23,8 +23,9 @@ async function start() {
         await bookRoutes.dbReady;
 
         app.listen(port, () => {
-            console.log(`Server is running at ${port}`);
+            console.log(`Server is running at localhost:${port}`);
         });
+        //do i need this??
     } catch (err) {
         console.error("Router/DB failed to initialize:", err);
         process.exit(1);

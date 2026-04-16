@@ -32,65 +32,74 @@
 
 
     <div class="searchContainer">
-        <form id="bookSearchForm" method="get" class="searchContainer">
+        <form id="bookSearchForm" method="get" class="searchbarContainer">
             <input type="text" class="bookSearchbar" id="bookSearch" placeholder="Search by title">
             <button type="submit" class="searchButton" id="searchButton"></button>
         </form>
+        <div>
+            <select id="tagsDropdown" class="tagsDropdown" placeholder="Search for books by tag...">
+                <option disabled selected value="">Filter by tag</option>
+                <option value="war" class="dropdownOptionTags">War</option>
+                <option class="dropdownOptionTags" value="strong female protagonist">Strong Female Protagonist</option>
+                <option class="dropdownOptionTags" value="social justice">Social Justice</option>
+                <option class="dropdownOptionTags" value="diverse cast of characters">Diverse Cast of Characters
+                </option>
+                <option class="dropdownOptionTags" value="found family">Found Family</option>
+                <option class="dropdownOptionTags" value="dark/gritty">Dark/Gritty</option>
+                <option class="dropdownOptionTags" value="unique and/or creative plot">Unique and/or Creative Plot
+                </option>
+                <option class="dropdownOptionTags" value="LGBTQIA characters">LGBTQIA Characters</option>
+                <option class="dropdownOptionTags" value="thought provoking">Thought Provoking</option>
+                <option class="dropdownOptionTags" value="grief/loss">Greif/Loss</option>
+                <option class="dropdownOptionTags" value="character driven plot">Character Driven Plot</option>
+                <option class="dropdownOptionTags" value="racially diverse">Racially Diverse</option>
+                <option class="dropdownOptionTags" value="disability representation">Disability Representation</option>
+                <option class="dropdownOptionTags" value="trauma">Trauma</option>
+                <option class="dropdownOptionTags" value="light/wholesome">Light/Wholesome</option>
+                <option class="dropdownOptionTags" value="animal characters">Animal Characters</option>
+                <option class="dropdownOptionTags" value="neurodivergent characters">Neurodivergent Characters</option>
+                <option class="dropdownOptionTags" value="dragon characters">Dragon Characters</option>
+                <option class="dropdownOptionTags" value="healthy male role">Healthy Male Role</option>
+                <option class="dropdownOptionTags" value="healthy female role">Healthy Female Role</option>
+                <option class="dropdownOptionTags" value="time travel">Time Travel</option>
+                <option class="dropdownOptionTags" value="artificial intelligence">Artificial Intelligence</option>
+                <option class="dropdownOptionTags" value="humor">Humor</option>
+            </select>
+
+            <select id="genresDropdown" class="genresDropdown" placeholder="Search for books by tag...">
+                <option disabled selected value="">Filter by genre</option>
+                <option value="Adventure" class="dropdownOptionGenres">Adventure</option>
+                <option class="dropdownOptionGenres" value="Classic">Classic</option>
+                <option class="dropdownOptionGenres" value="Dystopian">Dystopian</option>
+                <option class="dropdownOptionGenres" value="Fantasy">Fantasy</option>
+                <option class="dropdownOptionGenres" value="Folktale/Myth">Folktale/Myth</option>
+                <option class="dropdownOptionGenres" value="Graphic Novel">Graphic Novel</option>
+                <option class="dropdownOptionGenres" value="Historical Fiction">Historical Fiction</option>
+                <option class="dropdownOptionGenres" value="Sci-Fi">Sci-Fi</option>
+                <option class="dropdownOptionGenres" value="Memoir/Biography">Memoir/Biography</option>
+                <option class="dropdownOptionGenres" value="Nonfiction">Nonfiction</option>
+                <option class="dropdownOptionGenres" value="Poetry">Poetry</option>
+                <option class="dropdownOptionGenres" value="Realistic Fiction">Realistic Fiction</option>
+                <option class="dropdownOptionGenres" value="Romance">Romance</option>
+                <option class="dropdownOptionGenres" value="Sports">Sports</option>
+                <option class="dropdownOptionGenres" value="Horror/Scary">Horror/Scary</option>
+                <option class="dropdownOptionGenres" value="Mystery">Mystery</option>
+            </select>
+            <button class="searchFilterButton" onclick="sortVHtL()">💀↑</button>
+            <button class="searchFilterButton" onclick="sortVLtH()">💀↓</button>
+            <button class="searchFilterButton" onclick="sortCHtL()">😢↑</button>
+            <button class="searchFilterButton" onclick="sortCLtH()">😢↓</button>
+            <button class="searchFilterButton" onclick="sortTMostRecent()">🕓</button>
+            <button class="small-button" onclick="resetFilters()">Clear Filters</button>
+        </div>
     </div>
-    <br />
-
-
-    <select id="tagsDropdown" class="tagsDropdown" placeholder="Search for books by tag...">
-        <option disabled selected value="">Filter by tag...</option>
-        <option value="war" class="dropdownOptionTags">War</option>
-        <option class="dropdownOptionTags" value="strong female protagonist">Strong Female Protagonist</option>
-        <option class="dropdownOptionTags" value="social justice">Social Justice</option>
-        <option class="dropdownOptionTags" value="diverse cast of characters">Diverse Cast of Characters</option>
-        <option class="dropdownOptionTags" value="found family">Found Family</option>
-        <option class="dropdownOptionTags" value="dark/gritty">Dark/Gritty</option>
-        <option class="dropdownOptionTags" value="unique and/or creative plot">Unique and/or Creative Plot</option>
-        <option class="dropdownOptionTags" value="LGBTQIA characters">LGBTQIA Characters</option>
-        <option class="dropdownOptionTags" value="thought provoking">Thought Provoking</option>
-        <option class="dropdownOptionTags" value="grief/loss">Greif/Loss</option>
-        <option class="dropdownOptionTags" value="character driven plot">Character Driven Plot</option>
-        <option class="dropdownOptionTags" value="racially diverse">Racially Diverse</option>
-        <option class="dropdownOptionTags" value="disability representation">Disability Representation</option>
-        <option class="dropdownOptionTags" value="trauma">Trauma</option>
-        <option class="dropdownOptionTags" value="light/wholesome">Light/Wholesome</option>
-        <option class="dropdownOptionTags" value="animal characters">Animal Characters</option>
-        <option class="dropdownOptionTags" value="neurodivergent characters">Neurodivergent Characters</option>
-        <option class="dropdownOptionTags" value="dragon characters">Dragon Characters</option>
-        <option class="dropdownOptionTags" value="healthy male role">Healthy Male Role</option>
-        <option class="dropdownOptionTags" value="healthy female role">Healthy Female Role</option>
-        <option class="dropdownOptionTags" value="time travel">Time Travel</option>
-        <option class="dropdownOptionTags" value="artificial intelligence">Artificial Intelligence</option>
-        <option class="dropdownOptionTags" value="humor">Humor</option>
-    </select>
-
-    <select id="genresDropdown" class="genresDropdown" placeholder="Search for books by tag...">
-        <option disabled selected value="">Filter by genre...</option>
-        <option value="Adventure" class="dropdownOptionGenres">Adventure</option>
-        <option class="dropdownOptionGenres" value="Classic">Classic</option>
-        <option class="dropdownOptionGenres" value="Dystopian">Dystopian</option>
-        <option class="dropdownOptionGenres" value="Fantasy">Fantasy</option>
-        <option class="dropdownOptionGenres" value="Folktale/Myth">Folktale/Myth</option>
-        <option class="dropdownOptionGenres" value="Graphic Novel">Graphic Novel</option>
-        <option class="dropdownOptionGenres" value="Historical Fiction">Historical Fiction</option>
-        <option class="dropdownOptionGenres" value="Sci-Fi">Sci-Fi</option>
-        <option class="dropdownOptionGenres" value="Memoir/Biography">Memoir/Biography</option>
-        <option class="dropdownOptionGenres" value="Nonfiction">Nonfiction</option>
-        <option class="dropdownOptionGenres" value="Poetry">Poetry</option>
-        <option class="dropdownOptionGenres" value="Realistic Fiction">Realistic Fiction</option>
-        <option class="dropdownOptionGenres" value="Romance">Romance</option>
-        <option class="dropdownOptionGenres" value="Sports">Sports</option>
-        <option class="dropdownOptionGenres" value="Horror/Scary">Horror/Scary</option>
-    </select>
 
     <div id="table-wrapper"></div>
-    <br /> <br /> <br /> <br /> <br /> <br /><!--Heehehehhe sorry sorta it works-->
+    <br />
+    <!--Heehehehhe sorry sorta it works-->
 
     <footer>
-        <p>All info that I need to put about the Marylhurst School goes here.</p>
+        <p>The Marylhurst School Book Review Website</p>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -100,6 +109,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <script src="user.js"></script>
     <script src="books.js"></script>
 </body>
 

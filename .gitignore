@@ -3,4 +3,5 @@ library.db
 library.db-journal
 library.db-wal
 library.db-shm
-about.html
+data.txt
+dist

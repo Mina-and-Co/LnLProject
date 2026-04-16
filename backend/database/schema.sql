@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS book_tags (
     FOREIGN KEY (tag) REFERENCES tags(name) ON DELETE CASCADE
 );
 
---Indexes for perfomance (come back to this)
+--Indexes for performance (come back to this)
 CREATE INDEX IF NOT EXISTS idx_books_title ON books(title);
 
 CREATE INDEX IF NOT EXISTS idx_books_author ON books(author);
@@ -45,7 +45,7 @@ CREATE INDEX IF NOT EXISTS idx_books_genres_count ON book_genres(book_id, count 
 
 CREATE INDEX IF NOT EXISTS idx_books_tags_count ON book_tags(book_id, count DESC);
 
---Genres Data - 14 genres
+--Genres Data - 15 genres
 INSERT
     OR IGNORE INTO genres (name)
 VALUES
@@ -63,7 +63,8 @@ VALUES
     ('Realistic Fiction'),
     ('Romance'),
     ('Sports'),
-    ('Horror/Scary');
+    ('Horror/Scary'),
+    ("Mystery");
 
 --Tags Data
 INSERT

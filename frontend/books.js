@@ -8,27 +8,43 @@ const grid = new gridjs.Grid({
                 return gridjs.html(`<button type="button" class="tableButton" title="View Details" data-id=${id}>${bookTitle}</button>`);
             }
         },
-        { id: "author", name: "Author", width: "40%" },
+        { id: "author", name: "Author", width: "30%" },
         {
-            id: "ratingSum",
+            id: "Rating",
             name: "Rating",
             width: "20%",
-            formatter: (cell, row) => {
-                const numReviews = Number(row.cells[3]?.data) || 1; // Assuming num_reviews is column index 3
-                const ratingSum = Number(cell);
-                console.log(`Data:`, row.cells);
-                console.log(`Rating sum: ${ratingSum}, NumReviews: ${numReviews}`);
+            data: (row) => row,
+            formatter: (rowObject) => {
+                const numReviews = Number(rowObject.numReviews) || 1; // Assuming num_reviews is column index 3
+                const ratingSum = Number(rowObject.ratingSum);
                 if (isNaN(ratingSum) || isNaN(numReviews) || numReviews <= 0) {
                     return `⭐ 0.0`;
                 }
                 return `⭐ ${(ratingSum / numReviews).toFixed(1)}`;
             },
+            sort: {
+                compare: (a, b) => {
+                    const rawAvgA = a.numReviews > 0 ? a.ratingSum / a.numReviews : 0;
+                    const rawAvgB = b.numReviews > 0 ? b.ratingSum / b.numReviews : 0;
+
+                    const avgA = Number(rawAvgA.toFixed(1));
+                    const avgB = Number(rawAvgB.toFixed(1));
+
+                    if (avgA > avgB) return 1;
+                    if (avgA < avgB) return -1;
+
+                    if (a.numReviews > b.numReviews) return 1;
+                    if (a.numReviews < b.numReviews) return -1;
+                    return 0;
+                },
+            },
         },
-        { id: "numReviews", name: "Reviews", hidden: true }, // Helper column for math
-        { id: "id", name: "ID", hidden: true },
+
+        { id: "numReviews", name: "Reviews", width: "10%" }, // Helper column for math
+        { id: "id", name: "ID", hidden: "true" },
     ],
-    data: [],
     sort: true,
+    data: [],
     pagination: {
         limit: 10,
         summary: true,
@@ -36,7 +52,7 @@ const grid = new gridjs.Grid({
     },
     search: false, // We are using our own search bar
     //are we actually?
-    language: { noRecordsFound: "No books matched your search." },
+    language: { noRecordsFound: "No books were found." },
 });
 
 grid.render(document.getElementById("table-wrapper"));
@@ -46,7 +62,6 @@ document.addEventListener('click', (event) => {
         event.preventDefault();
 
         const bookId = event.target.getAttribute('data-id');//data- is an attribute. followed by my custom name "id"
-        console.log(bookId);
         window.location.href = `bookDetails.html?id=${bookId}`;
     }
 });
@@ -61,8 +76,6 @@ document.getElementById("bookSearchForm").addEventListener("submit", async funct
 
         const response = await fetch(url);
         const books = await response.json();
-
-        console.log("Books:", books);
 
         if (Array.isArray(books)) {
 
@@ -80,6 +93,12 @@ document.getElementById("bookSearchForm").addEventListener("submit", async funct
 
 });
 
+async function resetFilters() {
+    location.reload();
+
+}
+
+
 window.onload = async function () {
     try {
         const response = await fetch("/books");
@@ -91,7 +110,6 @@ window.onload = async function () {
             })
             .forceRender();
 
-        console.log("Grid updated with all books");
     } catch (err) {
         console.error("Failed to load books:", err.message);
     }
@@ -102,7 +120,7 @@ async function searchByGenre(genre) {
     try {
         const response = await fetch(`books/search/genre?genre=${genre}`);
         const books = await response.json();
-        console.log(books);
+
 
         if (Array.isArray(books)) {
             grid
@@ -122,7 +140,6 @@ async function searchByTag(tag) {
     try {
         const response = await fetch(`books/search/tag?tag=${tag}`);
         const books = await response.json();
-        console.log(books);
 
         if (Array.isArray(books)) {
             grid
@@ -145,16 +162,15 @@ document.getElementById('backButton').addEventListener('click', function () {
 document.getElementById("tagsDropdown")
     .addEventListener('change', async function (event) {
         const tagToSearch = event.currentTarget.value;
-        console.log(tagToSearch);
         searchByTag(tagToSearch);
     });
 
 document.getElementById("genresDropdown")
     .addEventListener('change', async function (event) {
         const genreToSearch = event.currentTarget.value;
-        console.log(genreToSearch);
         searchByGenre(genreToSearch);
     });
+
 
 document
     .getElementById("newBookForm")
@@ -178,11 +194,12 @@ document
 
         try {
             await saveNewBook(data);
-            window.location.reload();
             hideAddBooksOverlay();
         } catch (err) {
             alert("Add new book failed:" + err.message);
         }
+
+        location.reload();
     });
 
 async function saveNewBook(formData) {
@@ -202,17 +219,11 @@ async function saveNewBook(formData) {
     return true;
 }
 
-function showAddBooksOverlay() {
-    const password = "password";
-    let passwordEntered = prompt("Whoa there! This is a Mary operation. What's the password?");
-    switch (passwordEntered) {
-        case password:
-            const addOverlay = document.getElementById("overlayContainer");
-            addOverlay.classList.add("show");
-            break;
-        default:
-            alert("Bye.");
-    }
+async function showAddBooksOverlay() {
+    runWithAuth("Whoa there! This is a Mary operation. What's the password?", () => {
+        const addOverlay = document.getElementById("overlayContainer");
+        addOverlay.classList.add("show");
+    });
 }
 
 function hideAddBooksOverlay() {
@@ -227,3 +238,98 @@ document.addEventListener("click", function (event) {
         hideAddBooksOverlay();
     }
 });
+
+async function sortVHtL() {
+    try {
+        const response = await fetch(`books/search/violence?mode=1`);
+        const books = await response.json();
+
+        if (Array.isArray(books)) {
+            grid
+                .updateConfig({
+                    data: books,
+                })
+                .forceRender();
+        } else {
+            console.error("NOT AN ARRAY:", books);
+        }
+    } catch (err) {
+        console.error("Search failed:", err);
+    }
+}
+
+async function sortVLtH() {
+    try {
+        const response = await fetch(`books/search/violence?mode=2`);
+        const books = await response.json();
+
+        if (Array.isArray(books)) {
+            grid
+                .updateConfig({
+                    data: books,
+                })
+                .forceRender();
+        } else {
+            console.error("NOT AN ARRAY:", books);
+        }
+    } catch (err) {
+        console.error("Search failed:", err);
+    }
+}
+
+async function sortCHtL() {
+    try {
+        const response = await fetch(`books/search/cry?mode=1`);
+        const books = await response.json();
+
+        if (Array.isArray(books)) {
+            grid
+                .updateConfig({
+                    data: books,
+                })
+                .forceRender();
+        } else {
+            console.error("NOT AN ARRAY:", books);
+        }
+    } catch (err) {
+        console.error("Search failed:", err);
+    }
+}
+
+async function sortCLtH() {
+    try {
+        const response = await fetch(`books/search/cry?mode=2`);
+        const books = await response.json();
+
+        if (Array.isArray(books)) {
+            grid
+                .updateConfig({
+                    data: books,
+                })
+                .forceRender();
+        } else {
+            console.error("NOT AN ARRAY:", books);
+        }
+    } catch (err) {
+        console.error("Search failed:", err);
+    }
+}
+
+async function sortTMostRecent() {
+    try {
+        const response = await fetch(`books/search/time`);
+        const books = await response.json();
+
+        if (Array.isArray(books)) {
+            grid
+                .updateConfig({
+                    data: books,
+                })
+                .forceRender();
+        } else {
+            console.error("NOT AN ARRAY:", books);
+        }
+    } catch (err) {
+        console.error("Search failed:", err);
+    }
+}

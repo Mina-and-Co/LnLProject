@@ -4,7 +4,15 @@
   "description": "Book review app",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "concurrently \"node --watch backend/server.js\" \"browser-sync start --proxy 'localhost:8000' --files 'frontend/**/*'\""
+    "dev": "concurrently \"node --watch backend/server.js\" \"browser-sync start --proxy 'localhost:8000' --files 'frontend/**/*'\"",
+
+    "clean:linux": "rm -rf dist/linux",
+    "clean:mac": "rm -rf dist/mac /tmp/mac-sqlite",
+    "clean": "npm run clean:linux && npm run clean:mac",
+
+    "build:mac": "npm run clean:mac && mkdir -p /tmp/mac-sqlite && cd /tmp/mac-sqlite && npm init -y && npm_config_platform=darwin npm_config_arch=x64 npm install sqlite3 && cd - && pkg backend/server.js --config package.json --targets node18-macos-x64 --no-bytecode --out-path dist/mac && mkdir -p dist/mac/node_modules && cp -r /tmp/mac-sqlite/node_modules/sqlite3 dist/mac/node_modules/",
+    "build:linux": "npm run clean:linux && pkg backend/server.js --config package.json --targets node18-linux-x64 --out-path dist/linux && mkdir -p dist/linux/node_modules && cp -r node_modules/sqlite3 dist/linux/node_modules/",
+    "build": "npm run clean && npm run build:linux && npm run build:mac"
   },
   "author": "Molly Grubbs",
   "license": "MIT",
@@ -14,6 +22,13 @@
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [
+      "frontend/**/*",
+      "backend/database/schema.sql"
+    ]
   }
 }

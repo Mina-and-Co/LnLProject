@@ -49,9 +49,232 @@ async function getAllBooks() {
     }
 }
 
+async function SortByTime() {
+    try {
+        const sql = `SELECT
+                    b.id,
+                    b.title,
+                    b.author,
+                    b.num_reviews,
+                    b.rating_sum,
+                    b.violence_sum,
+                    b.cry_sum,
+                    b.created_at,
+                    b.updated_at,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bg.genre, 'count', bg.count)
+                    ) FROM book_genres bg WHERE bg.book_id = b.id) AS genres_json,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bt.tag, 'count', bt.count)
+                    ) FROM book_tags bt WHERE bt.book_id = b.id) AS tags_json
+                     FROM books b
+                     ORDER BY b.updated_at DESC;`;
+
+        const rows = await db.allAsync(sql);
+        const processedRows = rows.map((row) => ({
+            id: row.id,
+            link: `/books/${row.id}`,
+            title: row.title,
+            author: row.author,
+            numReviews: row.num_reviews,
+            ratingSum: row.rating_sum,
+            violenceSum: row.violence_sum,
+            crySum: row.cry_sum,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at,
+            genres: row.genres_json ? JSON.parse(row.genres_json) : [],
+            tags: row.tags_json ? JSON.parse(row.tags_json) : []
+        }));
+
+        return processedRows;
+    } catch (err) {
+        console.error("Error in bookService.getAllBooks:", err.message);
+        throw err;
+    }
+}
+
+async function sortByViolenceHighToLow() {
+    try {
+        const sql = `SELECT
+                    b.id,
+                    b.title,
+                    b.author,
+                    b.num_reviews,
+                    b.rating_sum,
+                    b.violence_sum,
+                    b.cry_sum,
+                    b.created_at,
+                    b.updated_at,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bg.genre, 'count', bg.count)
+                    ) FROM book_genres bg WHERE bg.book_id = b.id) AS genres_json,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bt.tag, 'count', bt.count)
+                    ) FROM book_tags bt WHERE bt.book_id = b.id) AS tags_json
+                     FROM books b
+                     WHERE b.num_reviews > 0
+                     ORDER BY (b.violence_sum * 1.0) / b.num_reviews DESC;`;
+
+        const rows = await db.allAsync(sql);
+        const processedRows = rows.map((row) => ({
+            id: row.id,
+            link: `/books/${row.id}`,
+            title: row.title,
+            author: row.author,
+            numReviews: row.num_reviews,
+            ratingSum: row.rating_sum,
+            violenceSum: row.violence_sum,
+            crySum: row.cry_sum,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at,
+            genres: row.genres_json ? JSON.parse(row.genres_json) : [],
+            tags: row.tags_json ? JSON.parse(row.tags_json) : []
+        }));
+
+        return processedRows;
+    } catch (err) {
+        console.error("Error in bookService:", err.message);
+        throw err;
+    }
+}
+
+async function sortByViolenceLowToHigh() {
+    try {
+        const sql = `SELECT
+                    b.id,
+                    b.title,
+                    b.author,
+                    b.num_reviews,
+                    b.rating_sum,
+                    b.violence_sum,
+                    b.cry_sum,
+                    b.created_at,
+                    b.updated_at,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bg.genre, 'count', bg.count)
+                    ) FROM book_genres bg WHERE bg.book_id = b.id) AS genres_json,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bt.tag, 'count', bt.count)
+                    ) FROM book_tags bt WHERE bt.book_id = b.id) AS tags_json
+                     FROM books b
+                     WHERE b.num_reviews > 0
+                     ORDER BY (b.violence_sum * 1.0) / b.num_reviews ASC;`;
+
+        const rows = await db.allAsync(sql);
+        const processedRows = rows.map((row) => ({
+            id: row.id,
+            link: `/books/${row.id}`,
+            title: row.title,
+            author: row.author,
+            numReviews: row.num_reviews,
+            ratingSum: row.rating_sum,
+            violenceSum: row.violence_sum,
+            crySum: row.cry_sum,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at,
+            genres: row.genres_json ? JSON.parse(row.genres_json) : [],
+            tags: row.tags_json ? JSON.parse(row.tags_json) : []
+        }));
+
+        return processedRows;
+    } catch (err) {
+        console.error("Error in bookService:", err.message);
+        throw err;
+    }
+}
+
+async function sortByCryLowToHigh() {
+    try {
+        const sql = `SELECT
+                    b.id,
+                    b.title,
+                    b.author,
+                    b.num_reviews,
+                    b.rating_sum,
+                    b.violence_sum,
+                    b.cry_sum,
+                    b.created_at,
+                    b.updated_at,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bg.genre, 'count', bg.count)
+                    ) FROM book_genres bg WHERE bg.book_id = b.id) AS genres_json,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bt.tag, 'count', bt.count)
+                    ) FROM book_tags bt WHERE bt.book_id = b.id) AS tags_json
+                     FROM books b
+                     WHERE b.num_reviews > 0
+                     ORDER BY (b.cry_sum * 1.0) / b.num_reviews ASC;`;
+
+        const rows = await db.allAsync(sql);
+        const processedRows = rows.map((row) => ({
+            id: row.id,
+            link: `/books/${row.id}`,
+            title: row.title,
+            author: row.author,
+            numReviews: row.num_reviews,
+            ratingSum: row.rating_sum,
+            violenceSum: row.violence_sum,
+            crySum: row.cry_sum,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at,
+            genres: row.genres_json ? JSON.parse(row.genres_json) : [],
+            tags: row.tags_json ? JSON.parse(row.tags_json) : []
+        }));
+
+        return processedRows;
+    } catch (err) {
+        console.error("Error in bookService:", err.message);
+        throw err;
+    }
+}
+
+async function sortByCryHighToLow() {
+    try {
+        const sql = `SELECT
+                    b.id,
+                    b.title,
+                    b.author,
+                    b.num_reviews,
+                    b.rating_sum,
+                    b.violence_sum,
+                    b.cry_sum,
+                    b.created_at,
+                    b.updated_at,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bg.genre, 'count', bg.count)
+                    ) FROM book_genres bg WHERE bg.book_id = b.id) AS genres_json,
+                    (SELECT JSON_GROUP_ARRAY(
+                        JSON_OBJECT('name', bt.tag, 'count', bt.count)
+                    ) FROM book_tags bt WHERE bt.book_id = b.id) AS tags_json
+                     FROM books b
+                     WHERE b.num_reviews > 0
+                     ORDER BY (b.cry_sum * 1.0) / b.num_reviews DESC;`;
+
+        const rows = await db.allAsync(sql);
+        const processedRows = rows.map((row) => ({
+            id: row.id,
+            link: `/books/${row.id}`,
+            title: row.title,
+            author: row.author,
+            numReviews: row.num_reviews,
+            ratingSum: row.rating_sum,
+            violenceSum: row.violence_sum,
+            crySum: row.cry_sum,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at,
+            genres: row.genres_json ? JSON.parse(row.genres_json) : [],
+            tags: row.tags_json ? JSON.parse(row.tags_json) : []
+        }));
+
+        return processedRows;
+    } catch (err) {
+        console.error("Error in bookService:", err.message);
+        throw err;
+    }
+}
+
 async function searchBooksByTitle(searchTitle) {
     try {
-
         const sql = `SELECT
                     b.id,
                     b.title,
@@ -238,7 +461,7 @@ async function searchForId(id) {
 
 async function saveReview(id, formData) {
     if (!id) {
-        throw new Error("Book ID is required to save a review.")
+        throw new Error("Book ID is required to save a review.");
     }
 
     if (!formData) {
@@ -249,15 +472,15 @@ async function saveReview(id, formData) {
     const violence = parseInt(formData.violence);
 
     if (isNaN(rating)) {
-        throw new Error("Rating is missing or invalid.")
+        throw new Error("Rating is missing or invalid.");
     }
 
     if (isNaN(violence)) {
-        throw new Error("Violence rating is missing or invalid.")
+        throw new Error("Violence rating is missing or invalid.");
     }
 
     if (!formData.cry) {
-        throw new Error("Cry rating is missing.")
+        throw new Error("Cry rating is missing.");
     }
 
     const cryValue = formData.cry === "yes" ? 1 : 0;
@@ -280,7 +503,7 @@ async function saveReview(id, formData) {
                 $id: id
             });
 
-        for (const genre of formData.genres) {
+        for (const genre of formData.genres || []) {
             await db.runAsync(`
                         INSERT INTO book_genres (book_id, genre, count)
                             VALUES ($id, $genre, 1)
@@ -291,7 +514,7 @@ async function saveReview(id, formData) {
                 });
         }
 
-        for (const tag of formData.tags) {
+        for (const tag of formData.tags || []) {
             await db.runAsync(`
                         INSERT INTO book_tags (book_id, tag, count)
                             VALUES ($id, $tag, 1)
@@ -318,7 +541,7 @@ async function addBook(body) {
     const title = body.title;
 
     if (!author || !title) {
-        throw new Error("Title and author are required to add a book.")
+        throw new Error("Title and author are required to add a book.");
     }
 
     try {
@@ -368,6 +591,68 @@ async function deleteBook(id) {
     }
 }
 
+async function editBook(id, formData) {
+    if (!id) {
+        throw new Error("Book ID is required to save a review.");
+    }
+
+    if (!formData.title || !formData.author) {
+        throw new Error("Title and author are required to save a review.");
+    }
+
+    try {
+        await db.runAsync("BEGIN TRANSACTION");
+
+        await db.runAsync(`
+            UPDATE books SET title = $title, author = $author WHERE id = $id`,
+            {
+                $title: formData.title,
+                $author: formData.author,
+                $id: id
+            });
+
+        await db.runAsync(`
+                DELETE FROM book_genres WHERE book_id = $id`,
+            { $id: id }
+        );
+        if (formData.genres) {
+            for (const genre of formData.genres) {
+                await db.runAsync(`
+                        INSERT INTO book_genres (book_id, genre, count)
+                            VALUES ($id, $genre, 1)
+                            ON CONFLICT(book_id, genre) DO UPDATE SET count = count + 1`,
+                    {
+                        $id: id,
+                        $genre: genre,
+                    });
+            }
+        }
+
+        await db.runAsync(`
+                DELETE FROM book_tags WHERE book_id = $id`,
+            { $id: id }
+        );
+        if (formData.tags) {
+            for (const tag of formData.tags) {
+                await db.runAsync(`
+                        INSERT INTO book_tags (book_id, tag, count)
+                            VALUES ($id, $tag, 1)
+                            ON CONFLICT(book_id, tag) DO UPDATE SET count = count + 1`,
+                    {
+                        $id: id,
+                        $tag: tag,
+                    });
+            }
+        }
+
+        await db.runAsync("COMMIT");
+    } catch (err) {
+        await db.runAsync("ROLLBACK");
+        console.error("Error in bookService.editBook", err.message);
+        throw err;
+    }
+}
+
 module.exports = {
     getAllBooks,
     searchBooksByTitle,
@@ -376,5 +661,11 @@ module.exports = {
     searchBooksByGenre,
     searchBooksByTag,
     addBook,
-    deleteBook
+    deleteBook,
+    editBook,
+    sortByViolenceHighToLow,
+    sortByViolenceLowToHigh,
+    sortByCryHighToLow,
+    sortByCryLowToHigh,
+    SortByTime
 };
